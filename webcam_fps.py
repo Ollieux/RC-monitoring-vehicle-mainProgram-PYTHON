@@ -8,6 +8,7 @@ webcam = cv.VideoCapture(0)
 fps, st, frames_to_count, cnt = (0, 0, 20, 0)
 
 while True:
+
     _, frame = webcam.read()
     # frame = cv.resize(frame, (width, height))
     # image = cv.rotate(frame, cv.ROTATE_90_COUNTERCLOCKWISE)
@@ -23,6 +24,7 @@ while True:
             fps = round(frames_to_count / (time.time() - st))
             st = time.time()
             cnt = 0
+            print(fps)
         except:
             pass
     cnt += 1

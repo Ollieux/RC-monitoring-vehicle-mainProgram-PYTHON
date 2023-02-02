@@ -12,13 +12,13 @@ ssh-add ~/.ssh/id_rsa_ollieux_rpi\
 ssh -T git@github.com
 
 ## catalog -> git:
-git init
+git init\
 git remote add origin <>\
 git config user.email <>\
 git config user.name <>\
 git pull origin main
 
-# git -> catalog:
+## git -> catalog:
 git clone http:\
 git config user.email <>\
 git config user.name <>
