@@ -22,3 +22,6 @@ git pull origin main
 git clone http:\
 git config user.email <>\
 git config user.name <>
+
+##Open-cv:
+pip install opencv-python====4.5.3.56
