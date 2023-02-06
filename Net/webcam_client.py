@@ -13,7 +13,7 @@ host_name = socket.gethostname()
 host_ip = '192.168.1.31'
 # # host_ip = socket.gethostbyname(host_name)
 print(host_ip)
-port = 9995
+port = 9994
 message = b'Hello'
 
 client_socket.sendto(message, (host_ip, port))
