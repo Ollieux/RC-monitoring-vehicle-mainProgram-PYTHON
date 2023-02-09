@@ -141,7 +141,7 @@ def Close():
 
 
 host = ''
-port = 21567
+port = 1337
 size = 1024
 addr = (host, port)
 Init()
