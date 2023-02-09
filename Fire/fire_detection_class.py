@@ -7,7 +7,7 @@ import numpy as np
 # fire_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'fire_detection.xml')
 # fire_cascade = cv2.CascadeClassifier('~/Rpi-Repo/Fire/fire_detection.xml')
 # fire_cascade = cv2.CascadeClassifier("~/Rpi-Repo/Fire/fire_detection.xml")
-fire_cascade = cv2.CascadeClassifier('/home/Rpi-Repo/Fire/fire_detection.xml')
+fire_cascade = cv2.CascadeClassifier("/home/Rpi-Repo/Fire/fire_detection.xml")
 
 # cap = cv2.VideoCapture(0)
 cap = cv2.VideoCapture("http://192.168.1.31:8081/")
