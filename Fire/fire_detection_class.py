@@ -5,16 +5,18 @@ import numpy as np
 # fire_cascade = cv2.CascadeClassifier('fire_detection.xml')
 # fire_cascade = cv2.CascadeClassifier("fire_detection.xml")
 # fire_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'fire_detection.xml')
-# fire_cascade = cv2.CascadeClassifier('~/Rpi-Repo/Fire/fire_detection.xml')
-# fire_cascade = cv2.CascadeClassifier("~/Rpi-Repo/Fire/fire_detection.xml")
+
 
 
 #xmlpath = '/home/Rpi-Repo/Fire/fire_detection.xml'
 # xmlpath2 = '/fire_detection.xml'
 # fire_cascade = cv2.CascadeClassifier(xmlpath2)
 
+xmlpath3 = "/home/Rpi-Repo/Fire/fire_detection_cascade_model.xml"
+
 # fire_cascade = cv2.CascadeClassifier('/home/Rpi-Repo/Fire/fire_detection_cascade_model.xml')
-fire_cascade = cv2.CascadeClassifier('/fire_detection_cascade_model.xml')
+# #fire_cascade = cv2.CascadeClassifier('/fire_detection_cascade_model.xml')
+fire_cascade = cv2.CascadeClassifier(xmlpath3)
 
 # cap = cv2.VideoCapture(0)
 cap = cv2.VideoCapture('http://192.168.1.31:8081/')
