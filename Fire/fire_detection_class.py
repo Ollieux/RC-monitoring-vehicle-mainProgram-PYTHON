@@ -10,7 +10,8 @@ import numpy as np
 
 
 xmlpath = '/home/Rpi-Repo/Fire/fire_detection.xml'
-fire_cascade = cv2.CascadeClassifier(xmlpath)
+xmlpath2 = '/fire_detection.xml'
+fire_cascade = cv2.CascadeClassifier(xmlpath2)
 
 # cap = cv2.VideoCapture(0)
 cap = cv2.VideoCapture('http://192.168.1.31:8081/')
