@@ -1,10 +1,10 @@
-from numpy.core import numeric
-import requests
+# from numpy.core import numeric
+# import requests
 import cv2
-import pickle
+# import pickle
 import socket
-import struct
-import numpy as np
+# import struct
+# import numpy as np
 import imutils
 import base64
 # from pyzbar import pyzbar
