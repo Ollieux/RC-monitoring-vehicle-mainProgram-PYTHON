@@ -14,14 +14,19 @@ ssh -T git@github.com
 ## catalog -> git:
 git init\
 git remote add origin <>\
-git config user.email <>\
-git config user.name <>\
+git config user.email oliwier.pszeniczko@gmail.com\
+git config user.name Ollieux\
 git pull origin main
 
 ## git -> catalog:
-git clone http:\
-git config user.email <>\
-git config user.name <>
+git clone http:<>\
+git config user.email oliwier.pszeniczko@gmail.com\
+git config user.name Ollieux\
 
 ##Open-cv:
 pip install opencv-python==4.5.3.56
+
+## Owner change:
+git rebase -i --root\
+git commit --amend --author="Ollieux <oliwier.pszeniczko@gmail.com>" --no-edit\
+git rebase --continue\
