@@ -4,7 +4,7 @@ import socket
 import struct
 
 host = "192.168.1.31"
-port = 12345
+port = 12346
 
 server_socket = socket.socket()
 server_socket.bind((host, port))
