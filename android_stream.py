@@ -10,7 +10,6 @@ import base64
 # from pyzbar import pyzbar
 
 
-
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 vid = cv2.VideoCapture(0)
 host_ip = "192.168.1.31"
