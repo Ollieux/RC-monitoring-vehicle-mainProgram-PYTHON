@@ -28,9 +28,9 @@ while True:
 
     # TODO: frame = cv.resize(frame, (width, height))
 
-    #TODO: firedetection resize 80x160?
+    # TODO: firedetection resize 80x160?
 
-    frame = cv2.rotate(frame, cv2.ROTATE_90_CLOCKWISE)
+    # TODO: 1. frame = cv2.rotate(frame, cv2.ROTATE_90_CLOCKWISE)
 
     data = cv2.imencode('.jpg', frame)[1].tobytes()
     connection.sendall(struct.pack("!i", len(data)) + data)
