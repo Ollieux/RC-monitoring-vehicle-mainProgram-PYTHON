@@ -7,8 +7,8 @@ port = 9997
 
 cap = cv2.VideoCapture(0)
 
-# cap.set(cv2.CAP_PROP_FRAME_WIDTH, 480)
-# cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 320)
+cap.set(cv2.CAP_PROP_FRAME_WIDTH, 320)
+cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_socket.bind((host, port))
