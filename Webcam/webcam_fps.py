@@ -1,8 +1,8 @@
 import cv2 as cv
 import time
 
-# webcam = cv.VideoCapture(0)
-webcam = cv.VideoCapture("http://192.168.1.31:8081/")
+webcam = cv.VideoCapture(0)
+# webcam = cv.VideoCapture("http://192.168.1.31:8081/")
 
 # width = 640
 # height = 480
