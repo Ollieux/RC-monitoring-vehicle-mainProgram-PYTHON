@@ -11,11 +11,11 @@ if __name__ == '__main__':
     cap = cv2.VideoCapture(0)
     # cap = cv2.VideoCapture('http://192.168.1.31:8081/')
 
-    width =  160 # 240
-    height = 80  # 160
+    width =  240 # 240 160
+    height = 160  # 160
 
-    cap.set(cv2.CAP_PROP_FRAME_WIDTH, width)
-    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, height)
+    # cap.set(cv2.CAP_PROP_FRAME_WIDTH, width)
+    # cap.set(cv2.CAP_PROP_FRAME_HEIGHT, height)
 
     print("width: ", cap.get(cv2.CAP_PROP_FRAME_WIDTH))
     print("height: ", cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
@@ -26,7 +26,7 @@ if __name__ == '__main__':
     while(True):
         ret, frame = cap.read()
 
-        # frame = cv2.resize(frame, (width, height))
+        frame = cv2.resize(frame, (width, height))
         frame = cv2.rotate(frame, cv2.ROTATE_90_CLOCKWISE)
 
         # print("fps: ", cap.get(cv2.CAP_PROP_FPS))
