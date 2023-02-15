@@ -29,7 +29,7 @@ if __name__ == '__main__':
 
         # frame = cv2.resize(frame, (_width, _height))
         #
-        # frame = cv2.rotate(frame, cv2.ROTATE_90_CLOCKWISE)
+        frame = cv2.rotate(frame, cv2.ROTATE_90_CLOCKWISE)
 
         # frame = imutils.resize(frame, width=_width, height=_height)
         # frame = imutils.rotate_bound(frame, 90)
