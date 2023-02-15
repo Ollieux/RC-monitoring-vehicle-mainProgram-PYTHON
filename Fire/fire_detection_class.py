@@ -15,8 +15,8 @@ if __name__ == '__main__':
     width =  320 #176# #  240
     height =   240#144#  #  160
 
-    cap.set(cv2.CAP_PROP_FRAME_WIDTH, width)
-    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, height)
+    # cap.set(cv2.CAP_PROP_FRAME_WIDTH, width)
+    # cap.set(cv2.CAP_PROP_FRAME_HEIGHT, height)
 
     print("width: ", cap.get(cv2.CAP_PROP_FRAME_WIDTH))
     print("height: ", cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
@@ -29,10 +29,10 @@ if __name__ == '__main__':
 
         # frame = cv2.resize(frame, (width, height))
 
-        frame = cv2.rotate(frame, cv2.ROTATE_90_CLOCKWISE)
+        # frame = cv2.rotate(frame, cv2.ROTATE_90_CLOCKWISE)
 
-        #frame = imutils.resize(frame, width=176, height=144)
-        #frame = imutils.rotate_bound(frame, 90)
+        frame = imutils.resize(frame, width=width, height=height)
+        frame = imutils.rotate_bound(frame, 90)
 
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         fire = fire_cascade.detectMultiScale(gray, 1.3, 5)
