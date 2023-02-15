@@ -32,7 +32,8 @@ if __name__ == '__main__':
         # frame = cv2.rotate(frame, cv2.ROTATE_90_CLOCKWISE)
 
         frame = imutils.resize(frame, width=width, height=height)
-        frame = imutils.rotate_bound(frame, 90)
+        # frame = imutils.rotate_bound(frame, 90)
+        frame = imutils.rotate(frame, 90)
 
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         fire = fire_cascade.detectMultiScale(gray, 1.3, 5)
