@@ -12,8 +12,8 @@ if __name__ == '__main__':
     cap = cv2.VideoCapture(0)
     # cap = cv2.VideoCapture('http://192.168.1.31:8081/')
 
-    width =  320 #176# #  240
-    height =   240#144#  #  160
+    _width =  320 #176# #  240
+    _height =   240#144#  #  160
 
     # cap.set(cv2.CAP_PROP_FRAME_WIDTH, width)
     # cap.set(cv2.CAP_PROP_FRAME_HEIGHT, height)
@@ -31,7 +31,7 @@ if __name__ == '__main__':
 
         # frame = cv2.rotate(frame, cv2.ROTATE_90_CLOCKWISE)
 
-        frame = imutils.resize(frame, width=width, height=height)
+        frame = imutils.resize(frame, width=_width, height=_height)
         frame = imutils.rotate_bound(frame, 90)
         # frame = imutils.rotate(frame, 90)
 
