@@ -27,13 +27,13 @@ if __name__ == '__main__':
     while(True):
         ret, frame = cap.read()
 
-        # frame = cv2.resize(frame, (width, height))
+        frame = cv2.resize(frame, (_width, _height))
 
-        # frame = cv2.rotate(frame, cv2.ROTATE_90_CLOCKWISE)
+        frame = cv2.rotate(frame, cv2.ROTATE_90_CLOCKWISE)
 
-        frame = imutils.resize(frame, width=_width, height=_height)
+        # frame = imutils.resize(frame, width=_width, height=_height)
         # frame = imutils.rotate_bound(frame, 90)
-        frame = imutils.rotate(frame, 90)
+        # #frame = imutils.rotate(frame, 90)
 
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         fire = fire_cascade.detectMultiScale(gray, 1.3, 5)
