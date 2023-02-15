@@ -47,7 +47,7 @@ if __name__ == '__main__':
             # roi_color = frame[y:y + h, x:x + w]
             print('fire is detected')
 
-        print("fps: ", cap.get(cv2.CAP_PROP_FPS))
+        #  print("fps: ", cap.get(cv2.CAP_PROP_FPS))
         # frame = cv2.putText(frame, 'FPS: ' + str(fps), (10, 40), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
         cv2.imshow('frame', frame)
 
