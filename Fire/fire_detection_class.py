@@ -15,8 +15,8 @@ if __name__ == '__main__':
     _width =  320 #176# #  240
     _height =   240#144#  #  160
 
-    # cap.set(cv2.CAP_PROP_FRAME_WIDTH, width)
-    # cap.set(cv2.CAP_PROP_FRAME_HEIGHT, height)
+    cap.set(cv2.CAP_PROP_FRAME_WIDTH, _width)
+    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, _height)
 
     print("width: ", cap.get(cv2.CAP_PROP_FRAME_WIDTH))
     print("height: ", cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
@@ -27,9 +27,9 @@ if __name__ == '__main__':
     while(True):
         ret, frame = cap.read()
 
-        frame = cv2.resize(frame, (_width, _height))
-
-        frame = cv2.rotate(frame, cv2.ROTATE_90_CLOCKWISE)
+        # frame = cv2.resize(frame, (_width, _height))
+        #
+        # frame = cv2.rotate(frame, cv2.ROTATE_90_CLOCKWISE)
 
         # frame = imutils.resize(frame, width=_width, height=_height)
         # frame = imutils.rotate_bound(frame, 90)
