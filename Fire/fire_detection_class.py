@@ -18,7 +18,7 @@ if __name__ == '__main__':
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, _width)
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, _height)
 
-    # cap.set(cv2.CAP_PROP_FPS, 10)
+    cap.set(cv2.CAP_PROP_FPS, 10)
 
     print("width: ", cap.get(cv2.CAP_PROP_FRAME_WIDTH))
     print("height: ", cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
