@@ -18,13 +18,13 @@ if __name__ == '__main__':
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, _width)
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, _height)
 
-    cap.set(cv2.CAP_PROP_FPS, 10)
+    # cap.set(cv2.CAP_PROP_FPS, 10)
 
     print("width: ", cap.get(cv2.CAP_PROP_FRAME_WIDTH))
     print("height: ", cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
     # print("fps: ", cap.get(cv2.CAP_PROP_FPS))
 
-    fps, st, frames_to_count, cnt = (0, 0, 30, 0)
+    # fps, st, frames_to_count, cnt = (0, 0, 30, 0)
 
     while(True):
         ret, frame = cap.read()
@@ -47,21 +47,22 @@ if __name__ == '__main__':
             # roi_color = frame[y:y + h, x:x + w]
             print('fire is detected')
 
-        frame = cv2.putText(frame, 'FPS: ' + str(fps), (10, 40), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
+        print("fps: ", cap.get(cv2.CAP_PROP_FPS))
+        # frame = cv2.putText(frame, 'FPS: ' + str(fps), (10, 40), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
         cv2.imshow('frame', frame)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
-        if cnt == frames_to_count:
-            try:
-                fps = round(frames_to_count / (time.time() - st))
-                st = time.time()
-                cnt = 0
-                print(fps)
-            except:
-                pass
-        cnt += 1
+        # if cnt == frames_to_count:
+        #     try:
+        #         fps = round(frames_to_count / (time.time() - st))
+        #         st = time.time()
+        #         cnt = 0
+        #         print(fps)
+        #     except:
+        #         pass
+        # cnt += 1
 
     cap.release()
     cv2.DestroyAllWindows()
