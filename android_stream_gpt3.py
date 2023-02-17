@@ -2,38 +2,53 @@ import cv2
 import socket
 import struct
 
-host = '192.168.1.31'
+# host = '192.168.1.31'
+host = "192.168.1.5"
+
 port = 9994
 
 cap = cv2.VideoCapture(0)
 
-# cap.set(cv2.CAP_PROP_FRAME_WIDTH, 480)
-# cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 320)
+width = 320#176#320
+height = 240#144#240
 
-# TODO: width = 320
-# TODO height = 480
+cap.set(cv2.CAP_PROP_FRAME_WIDTH, width)
+cap.set(cv2.CAP_PROP_FRAME_HEIGHT, height)
 
 
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_socket.bind((host, port))
 server_socket.listen(0)
 
-connection, address = server_socket.accept()
+
 
 while True:
 
-    #TODO: socket in while
+    print("Waiting for connection...")
+    connection, address = server_socket.accept()
+    print("Connected ", address)
 
-    ret, frame = cap.read()
+    while True:
 
-    # TODO: frame = cv.resize(frame, (width, height))
+        ret, frame = cap.read()
 
-    # TODO: firedetection resize 80x160?
 
-    # TODO: 1. frame = cv2.rotate(frame, cv2.ROTATE_90_CLOCKWISE)
 
-    data = cv2.imencode('.jpg', frame)[1].tobytes()
-    connection.sendall(struct.pack("!i", len(data)) + data)
+        # frame = cv2.resize(frame, (width, height))
+
+        frame = cv2.rotate(frame, cv2.ROTATE_90_CLOCKWISE)
+
+        # cv2.imshow('frame', frame)
+
+        data = cv2.imencode('.jpg', frame)[1].tobytes()
+
+        try:
+            connection.sendall(struct.pack("!i", len(data)) + data)
+        except (ConnectionResetError, ConnectionAbortedError) as e:
+            print(e)
+            break
+
+
 
 cap.release()
 connection.close()
