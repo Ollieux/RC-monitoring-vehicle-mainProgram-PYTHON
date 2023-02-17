@@ -3,7 +3,8 @@ import socket
 import struct
 
 # host = '192.168.1.31'
-host = "192.168.1.5"
+# host = "192.168.1.5"
+host = "192.168.43.119"
 
 port = 9994
 
