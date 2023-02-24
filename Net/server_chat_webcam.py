@@ -15,6 +15,9 @@ def recive_data():
             print("null")
             break
         # data = data.decode().decode("utf-8")
+        # values = data.split(',')
+        # values = [int(x) for x in data.split(',')]
+        # print(values)
         print(data)
 
 def send_frame():
@@ -22,6 +25,7 @@ def send_frame():
         while vid.isOpened():
             ret, frame = vid.read()
             frame = cv2.rotate(frame, cv2.ROTATE_90_COUNTERCLOCKWISE)
+            #TODO: imutils.resize() ?
             data = cv2.imencode('.jpg', frame)[1].tobytes()
             try:
 
@@ -50,29 +54,31 @@ s = socket.socket()
 s.bind((host, port))
 s.listen(1)
 
-#while True:
+# while True:
 print("Waiting for connection...")
 conn, addr = s.accept()
 print(addr, " connected")
 
     # t
+    #receive_thread = threading.Thread(target=recive_data, daemon=True)
 receive_thread = threading.Thread(target=recive_data, )
 receive_thread.start()
 
     # t2
-send_thread = threading.Thread(target=send_frame, )
+    #send_thread = threading.Thread(target=send_frame, daemon=True)
+send_thread = threading.Thread(target=send_frame)
 send_thread.start()
 
 receive_thread.join()
 send_thread.join()
 
 
+
+
 # send_thread = threading.Thread(target=send_frame, )
 # send_thread.start()
-#
 # receive_thread = threading.Thread(target=recive_data, )
 # receive_thread.start()
-#
 # send_thread.join()
 # receive_thread.join()
 
