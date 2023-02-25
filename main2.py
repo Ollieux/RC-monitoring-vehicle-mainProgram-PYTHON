@@ -7,10 +7,24 @@ import cv2
 import queue
 import firebase_admin
 import imutils
-from firebase_admin import credentials
+from firebase_admin import credentials, messaging
 
 
 # detect_fire_run = False
+
+def send_notification(title, msg):
+    # See documentation on defining a message payload.
+    message = messaging.Message(
+        notification=messaging.Notification(
+            title=title,
+            body=msg
+        ),
+        token=registration_token,
+    )
+
+    response = messaging.send(message)
+    # Response is a message ID string.
+    print('Successfully sent message:', response)
 
 def interpret_data():
     #TODO: data = data_queue.get()
@@ -97,7 +111,7 @@ def detect_fire():
     detecting = True
     while True:
         if not frame_queue.empty():
-            print("queue: ", frame_queue.qsize())
+            # print("queue: ", frame_queue.qsize())
             _frame = frame_queue.get()
         # if _frame:
 
@@ -108,7 +122,11 @@ def detect_fire():
             for (x, y, w, h) in flames:
                 cv2.rectangle(_frame, (x, y), (x + w, y + h), (255, 0, 0), 2) #TODO: rpi out
                 print("fire detected")
-                #TODO: notify()
+                # TODONE: notify()
+                global notified
+                if not notified:
+                    notified = True
+                    threading.Thread(target=send_notification, args=("Warning", "fire detected")).start() #TODO: temp, mq?
             cv2.imshow("Detect", _frame) #TODO: rpi out
             key = cv2.waitKey(1) & 0xFF
             if key == ord('q'):
@@ -136,10 +154,10 @@ server_socket.listen(1)
 fire_cascade = cv2.CascadeClassifier("Fire/fire_detection.xml")
 
 
-# cred = credentials.Certificate('pushnotifcationtest-f5539-firebase-adminsdk-2ssjk-6ca36caa53.json')
-# firebase_admin.initialize_app(cred)
-#
-# registration_token = 'epZx5w_RToGbXxrpEjeMXN:APA91bG2_S8rKS3enFhMq9oHwBoJt_XYn4nQEwZE3gCyb-EX-tyhR8DhgvVnjhL0fO5k0-c6ZxBagDMcv_h-iAUZWB5DEGRS9njP1ihvhH_zldBCow2_iCEmX2Rth2A0HzbJ-1R0y3Gj'
+cred = credentials.Certificate('Notification/pushnotifcationtest-f5539-firebase-adminsdk-2ssjk-6ca36caa53.json')
+firebase_admin.initialize_app(cred)
+
+registration_token = 'epZx5w_RToGbXxrpEjeMXN:APA91bG2_S8rKS3enFhMq9oHwBoJt_XYn4nQEwZE3gCyb-EX-tyhR8DhgvVnjhL0fO5k0-c6ZxBagDMcv_h-iAUZWB5DEGRS9njP1ihvhH_zldBCow2_iCEmX2Rth2A0HzbJ-1R0y3Gj'
 
 WIDTH = 320
 HEIGHT = 240
@@ -148,7 +166,8 @@ FPS = 10
 capturing = False
 detecting = False
 connected = False
-notification_send = False
+notified = False
+fire_occured = False
 frame_queue = queue.Queue()
 
 # capture_thread = threading.Thread(target=capture_frame, daemon=True)
