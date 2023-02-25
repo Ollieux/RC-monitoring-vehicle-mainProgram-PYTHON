@@ -3,8 +3,8 @@ import socket
 import struct
 
 # host = '192.168.1.31'
-# host = "192.168.1.5"
-host = "192.168.43.119"
+host = "192.168.1.5"
+# host = "192.168.43.119"
 
 port = 9994
 
@@ -37,7 +37,8 @@ while True:
 
         # frame = cv2.resize(frame, (width, height))
 
-        frame = cv2.rotate(frame, cv2.ROTATE_90_CLOCKWISE)
+        # frame = cv2.rotate(frame, cv2.ROTATE_90_CLOCKWISE)
+        frame = cv2.rotate(frame, cv2.ROTATE_90_COUNTERCLOCKWISE)
 
         # cv2.imshow('frame', frame)
 
@@ -47,6 +48,7 @@ while True:
             connection.sendall(struct.pack("!i", len(data)) + data)
         except (ConnectionResetError, ConnectionAbortedError) as e:
             print(e)
+            # cap.release()
             break
 
 

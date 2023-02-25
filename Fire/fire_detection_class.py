@@ -6,14 +6,14 @@ import numpy as np
 
 if __name__ == '__main__':
 
-    fire_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'fire_detection.xml')
-    #fire_cascade = cv2.CascadeClassifier('fire_detection.xml')
+    # fire_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'fire_detection.xml')
+    fire_cascade = cv2.CascadeClassifier('fire_detection.xml')
 
     cap = cv2.VideoCapture(0)
     # cap = cv2.VideoCapture('http://192.168.1.31:8081/')
 
-    _width = 176#320#240
-    _height = 144#240#160
+    _width = 320#176##240
+    _height = 240#144##160
 
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, _width)
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, _height)
@@ -30,8 +30,9 @@ if __name__ == '__main__':
         ret, frame = cap.read()
 
         # frame = cv2.resize(frame, (_width, _height))
-        #
-        frame = cv2.rotate(frame, cv2.ROTATE_90_CLOCKWISE)
+
+        # frame = cv2.rotate(frame, cv2.ROTATE_90_CLOCKWISE)
+        frame = cv2.rotate(frame, cv2.ROTATE_90_COUNTERCLOCKWISE)
 
         # frame = imutils.resize(frame, width=_width, height=_height)
         # frame = imutils.rotate_bound(frame, 90)

@@ -40,10 +40,10 @@ def send_frame():
             # conn.sendall(message)
             #
 
-            # cv2.imshow('TRANSMITTING VIDEO', frame)
-            # key = cv2.waitKey(1) & 0xFF
-            # if key == ord('q'):
-            #     conn.close()
+            cv2.imshow('TRANSMITTING VIDEO', frame)
+            key = cv2.waitKey(1) & 0xFF
+            if key == ord('q'):
+                conn.close()
 
 # --- main ---
 
@@ -71,6 +71,9 @@ send_thread.start()
 
 receive_thread.join()
 send_thread.join()
+
+
+
 
 
 
