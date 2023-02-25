@@ -1,0 +1,409 @@
+package com.example.webcam;
+
+
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Paint.Style;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import java.io.ByteArrayInputStream;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.Socket;
+
+public class MainActivity2 extends Activity { // implements SensorEventListener {
+
+    int X;
+    int Y;
+    int Z;
+    private TextView tRoll;
+    private TextView tAzimut;
+    private TextView tPitch;
+    private Button btnControl;
+    private Button btnRight;
+    private Button btnLeft;
+    private static final String IP = "192.168.1.5";
+    private static final int PORT = 9977;
+    boolean mSending = false;
+    boolean mSendingClear = false;
+    private SendMessageTask sendMessageTask;
+    private Socket socket1;
+    private DataOutputStream out1;
+    private ImageView imgCam;
+
+
+
+    private SensorManager mSensorManager;
+    Sensor orientation;
+
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main2);
+
+
+        // tRoll = (TextView) findViewById(R.id.roll);
+        // tAzimut = (TextView) findViewById(R.id.azimut);
+        // tPitch = (TextView) findViewById(R.id.pitch);
+
+        btnControl = (Button) findViewById(R.id.control_btn2);
+        btnRight = (Button) findViewById(R.id.right_btn2);
+        btnLeft = (Button) findViewById(R.id.left_btn2);
+
+        imgCam = (ImageView) findViewById(R.id.cam_img2);
+
+
+        mSensorManager = (SensorManager)getSystemService(SENSOR_SERVICE);
+        orientation = mSensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION);
+
+
+
+//        SendMessageTask sendMessageTask = new SendMessageTask();
+
+
+        ImageReceiver imageReceiver = new ImageReceiver();
+        // imageReceiver.execute(); 16:58 02.23
+        imageReceiver.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+
+        btnControl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mSending = !mSending;
+
+                if (mSending) {
+                    // mSending = false;
+                    mSendingClear = true;
+                    sendMessageTask = new SendMessageTask();
+                    //sendMessageTask.execute();
+                    sendMessageTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+                    btnControl.setText("Stop");
+                }
+                else {
+                    btnControl.setText("Start");
+                    if(!sendMessageTask.isCancelled())
+                        sendMessageTask.cancel(true);
+                    // mSending = true;
+                    ////mSendingClear = false;
+                }
+
+//                SendMessageTask sendMessageTask1 = new SendMessageTask();
+//                sendMessageTask1.execute();
+                //////sendMessageTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+                ////sendMessageTask.execute();
+
+            }
+        });
+
+//        btnRight.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if (mSending)
+//                    mSending = false;
+//                    mSendingClear = false;
+//                //SendMessageTask sendMessageTask2 = new SendMessageTask();
+//                //sendMessageTask2.execute();
+//                ////sendMessageTask.execute();
+//            }
+//        });
+
+        btnRight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mSending) {
+                    //if( sendMessageTask.isCancelled()) {
+                    sendMessageTask.cancel(true);
+                    mSending = false;
+                    btnControl.setText("Start");
+                    //}
+                }
+//                else {
+//                    sendMessageTask = new SendMessageTask();
+//
+//                }
+                sendMessageTask = new SendMessageTask();
+                //sendMessageTask.execute("5");
+                sendMessageTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, "5");
+            }
+        });
+
+        btnLeft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mSending) {
+                    //if( sendMessageTask.isCancelled()) {
+                    sendMessageTask.cancel(true);
+                    mSending = false;
+                    btnControl.setText("Start");
+                    //}
+                }
+//                else {
+//                    sendMessageTask = new SendMessageTask();
+//
+//                }
+                sendMessageTask = new SendMessageTask();
+                // sendMessageTask.execute("-5");
+                sendMessageTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, "-5");
+            }
+        });
+
+    }
+
+//    protected void onResume() {
+//        super.onResume();
+////        mSensorManager.registerListener(this, orientation, SensorManager.SENSOR_DELAY_UI);
+//        mSensorManager.registerListener(this, orientation, SensorManager.SENSOR_DELAY_NORMAL);
+//    }
+//
+//    protected void onPause() {
+//        super.onPause();
+//        mSensorManager.unregisterListener(this);
+//    }
+
+//    public void onAccuracyChanged(Sensor sensor, int accuracy) {  }
+//
+//
+//    public void onSensorChanged(SensorEvent event) {
+//
+//        float pitch = event.values[1];
+//        float roll = event.values[2];
+//        float azimut = event.values[0];
+//
+//
+//        X = Math.round(azimut);
+//        Y = Math.round(pitch);
+//        Z = Math.round(roll);
+//
+//        // tAzimut.setText("X: " + X);
+//        // tPitch.setText("Y: " + Y);
+//        // tRoll.setText("Z: " + Z);
+//
+//    }
+
+    //private class SendMessageTask extends AsyncTask<Void, Void, Void> {
+    private class SendMessageTask extends AsyncTask<String, Void, Void> {
+        // Socket msocket;
+        @Override
+        //protected Void doInBackground(Void... voids) {
+        protected Void doInBackground(String... params) {
+            try {
+
+                // InetAddress inet = InetAddress.getByName(IP);
+                // msocket = new Socket(inet, PORT);
+
+                // DataOutputStream mout = new DataOutputStream(msocket.getOutputStream());
+
+                // mout.writeBytes("button clicked");
+                // mout.flush(); //
+                // mout.close(); ////
+
+                //mout.write("button clicked".getBytes());
+                //mout.write((Integer.toString(Y) + "," + Integer.toString(Z)).getBytes());
+
+//                if (mSending) {
+//                    while (mSending) {
+//                        // mout.write("button clicked".getBytes());
+//                        //mout.write(Integer.toString(Y).getBytes()); // + ",".getBytes());
+//                        mout.write((Integer.toString(Y) + "," + Integer.toString(Z)).getBytes());
+//                        //mout.flush(); //
+//                        // mout.close(); ////
+//                    }
+//                }
+//                else {
+//
+//                    if(!mSendingClear) {
+//                        mout.write(Integer.toString(5).getBytes());
+//                    }
+//
+//                }
+
+
+                if (mSending) {
+                    while (!isCancelled()) {
+                        //mout.write((Integer.toString(Y) + "," + Integer.toString(Z)).getBytes());
+                        out1.write((Integer.toString(Y) + "," + Integer.toString(Z)).getBytes());
+                    }
+                }
+                else {
+
+                    ////mout.write(Integer.toString(5).getBytes());
+                    //mout.write(params[0].getBytes());
+                    out1.write(params[0].getBytes());
+                }
+
+                // mout.flush();
+                out1.flush();
+                // msocket.close();
+
+
+
+
+
+
+
+                // out1 = new DataOutputStream(socket1.getOutputStream());
+
+                // out1.writeBytes("button clicked");
+                // out1.flush(); //
+                // out1.close(); ////
+
+                //out1.write("Button clicked".getBytes());
+                //out1.flush(); //
+                //out1.close(); ////
+
+
+                //DataOutputStream out2 = new DataOutputStream(socket1.getOutputStream());
+
+                //out2.writeBytes("button clicked");
+                //out2.flush(); //
+                // out2.close(); ////
+
+                //out2.write("button clicked".getBytes());
+                //out2.flush(); //
+                //out2.close(); ////
+
+
+
+                // OutputStream out = socket.getOutputStream(); //
+                // out.write("button pressed".getBytes());//
+                //out1.flush(); ////
+                // out1.close(); //////
+                // socket.close(); //
+                /////// OutputStream out2 = socket1.getOutputStream();
+                /////// out2.write("button pressed".getBytes());
+                /////// out2.flush(); //
+                /////// out2.close(); ////
+                // System.out.println("p0rt: " + socket1.getPort())
+                // out.close(); //TODO: nie było tego
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+    }
+
+
+    private class ImageReceiver extends AsyncTask<Void, Bitmap, Void> {
+        // Socket isocket;
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            try {
+
+
+                InetAddress inet = InetAddress.getByName(IP);
+                // isocket = new Socket(inet, PORT);
+                socket1 = new Socket(inet, PORT);
+
+                out1 = new DataOutputStream(socket1.getOutputStream());
+
+                // out4 = socket1.getOutputStream();
+
+                DataInputStream in = new DataInputStream(socket1.getInputStream());
+                //DataInputStream in = new DataInputStream(isocket.getInputStream());
+
+                while (!isCancelled()) { //TODO: while (true) { ?
+                    int size = in.readInt();
+                    byte[] encodedFrame = new byte[size];
+                    in.readFully(encodedFrame);
+
+                    // Bitmap bmp = BitmapFactory.decodeByteArray(data, 0, data.length);
+                    // publishProgress(bmp);
+
+                    Bitmap bitmap = BitmapFactory.decodeStream(new ByteArrayInputStream(encodedFrame));
+                    publishProgress(bitmap);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onProgressUpdate(Bitmap... values) {
+            //TODO: super.onProgressUpdate(values);
+            super.onProgressUpdate(values);
+            imgCam.setImageBitmap(values[0]);
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+
+            try {
+//                socket.close();
+                socket1.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private SensorEventListener orientationSensorListener = new SensorEventListener() {
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {  }
+
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+
+        float pitch = event.values[1];
+        float roll = event.values[2];
+        float azimut = event.values[0];
+
+
+        X = Math.round(azimut);
+        Y = Math.round(pitch);
+        Z = Math.round(roll);
+
+        // tAzimut.setText("X: " + X);
+        // tPitch.setText("Y: " + Y);
+        // tRoll.setText("Z: " + Z);
+    }
+
+    };
+
+    protected void onResume() {
+        super.onResume();
+//        mSensorManager.registerListener(this, orientation, SensorManager.SENSOR_DELAY_UI);
+//        mSensorManager.registerListener(this, orientation, SensorManager.SENSOR_DELAY_NORMAL);
+        mSensorManager.registerListener(orientationSensorListener, orientation, SensorManager.SENSOR_DELAY_NORMAL);
+    }
+
+    protected void onPause() {
+        super.onPause();
+//        mSensorManager.unregisterListener(this);
+        mSensorManager.unregisterListener(orientationSensorListener);
+    }
+}
+
+//<TextView
+//        android:id="@+id/azimut"
+//                android:layout_width="wrap_content"
+//                android:layout_height="wrap_content" />
+//
+//<TextView
+//        android:id="@+id/pitch"
+//                android:layout_width="wrap_content"
+//                android:layout_height="wrap_content" />
+//
+//<TextView
+//        android:id="@+id/roll"
+//                android:layout_width="wrap_content"
+//                android:layout_height="wrap_content" />
