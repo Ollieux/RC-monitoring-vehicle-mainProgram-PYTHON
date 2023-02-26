@@ -2,7 +2,7 @@ import socket
 import struct
 import threading
 import time
-
+import serial
 import cv2
 import queue
 import firebase_admin
@@ -30,6 +30,13 @@ def interpret_data():
     #TODO: data = data_queue.get()
     pass
 
+def send_controls():
+    arduino = serial.Serial(port='COM6', baudrate=115200, timeout=.1)
+    while True:
+        if not data_queue.empty():
+            data = data_queue.get()
+            arduino.write(data + '\n')
+
 def receive_data():
     while True:
         data = connection.recv(1024).decode("utf-8")
@@ -41,7 +48,8 @@ def receive_data():
         # values = [int(x) for x in data.split(',')]
         # print(values)
         print(data)
-        #TODO: data_queue.put(data)
+        #TODO:
+        data_queue.put(data)
 
 
 def send_frame(): # conn):
@@ -144,7 +152,7 @@ def detect_fire():
 
 
 
-host = "192.168.1.5"
+host = "192.168.1.31"
 port = 9977
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_socket.bind((host, port))
@@ -169,6 +177,7 @@ connected = False
 notified = False
 fire_occured = False
 frame_queue = queue.Queue()
+data_queue = queue.Queue()
 
 # capture_thread = threading.Thread(target=capture_frame, daemon=True)
 capture_thread = threading.Thread(target=capture_frame, )
@@ -180,6 +189,9 @@ while not capturing:
 
 fire_thread = threading.Thread(target=detect_fire, )
 fire_thread.start()
+
+controls_thread = threading.Thread(target=send_controls, )
+controls_thread.start
 
 
 while True:
