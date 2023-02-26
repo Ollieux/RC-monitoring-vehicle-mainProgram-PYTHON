@@ -31,3 +31,6 @@ while True:
 
 cam.release()
 cv2.destroyAllWindows()
+
+
+# send data 2

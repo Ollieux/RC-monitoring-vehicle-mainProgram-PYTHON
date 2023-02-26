@@ -30,3 +30,7 @@ while True:
 # Clean up the socket connection
 cap.release()
 connection.close()
+
+# FUNCTIONAL?
+
+#send data 3

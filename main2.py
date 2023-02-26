@@ -34,9 +34,10 @@ def send_controls():
     # arduino = serial.Serial(port='COM6', baudrate=115200, timeout=.1)
     arduino = serial.Serial('/dev/ttyUSB0', 9600, timeout=1)
     while True:
-        if not data_queue.empty():
-            data = data_queue.get()
-            arduino.write(data + '\n')
+        # if not data_queue.empty():
+            # data = data_queue.get()
+            # arduino.write(data + '\n')
+            pass
 
 def receive_data():
     while True:
