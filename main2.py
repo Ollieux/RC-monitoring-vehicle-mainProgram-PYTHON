@@ -75,10 +75,10 @@ def capture_frame():
     global capturing
 
     cap = cv2.VideoCapture(0)
-    cap.set(3, WIDTH)
-    cap.set(4, HEIGHT)
+    # cap.set(3, WIDTH)
+    # cap.set(4, HEIGHT)
     #TODO:
-    cap.set(5, FPS)
+    # cap.set(5, FPS)
     # while True:
         # try:
     capturing = True
