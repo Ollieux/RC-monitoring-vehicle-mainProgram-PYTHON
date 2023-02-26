@@ -77,7 +77,8 @@ def capture_frame():
     cap = cv2.VideoCapture(0)
     cap.set(3, WIDTH)
     cap.set(4, HEIGHT)
-    #TODO: cap.set(5, FPS)
+    #TODO:
+    cap.set(5, FPS)
     # while True:
         # try:
     capturing = True
@@ -200,20 +201,28 @@ fire_thread.start()
 
 
 while True:
+    try:
+        connected = False
+        print("Waiting for connection")
+        connection, client_address = server_socket.accept()
+        connected = True
+        print(client_address, " connected")
+        receive_thread = threading.Thread(target=receive_data, )
+        receive_thread.start()
+        send_thread = threading.Thread(target=send_frame, )
+        send_thread.start()
+        # threading.Thread(target=send_frame, args=connection).start()
+        receive_thread.join()
+        send_thread.join()
+        print("end connection")
 
-    connected = False
-    print("Waiting for connection")
-    connection, client_address = server_socket.accept()
-    connected = True
-    print(client_address, " connected")
-    receive_thread = threading.Thread(target=receive_data, )
-    receive_thread.start()
-    send_thread = threading.Thread(target=send_frame, )
-    send_thread.start()
-    # threading.Thread(target=send_frame, args=connection).start()
-    receive_thread.join()
-    send_thread.join()
-    print("end connection")
+    except KeyboardInterrupt as e:
+        print(e)
+        break
+
+
+# fire_thread.join()
+# capture_thread.join()
 
 
 
