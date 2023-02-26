@@ -162,7 +162,8 @@ server_socket.bind((host, port))
 # server_socket.listen(5)
 server_socket.listen(1)
 
-fire_cascade = cv2.CascadeClassifier("Fire/fire_detection.xml")
+# fire_cascade = cv2.CascadeClassifier("Fire/fire_detection.xml")
+fire_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'fire_detection.xml')
 
 
 cred = credentials.Certificate('Notification/pushnotifcationtest-f5539-firebase-adminsdk-2ssjk-6ca36caa53.json')
