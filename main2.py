@@ -31,7 +31,8 @@ def interpret_data():
     pass
 
 def send_controls():
-    arduino = serial.Serial(port='COM6', baudrate=115200, timeout=.1)
+    # arduino = serial.Serial(port='COM6', baudrate=115200, timeout=.1)
+    arduino = serial.Serial('/dev/ttyUSB0', 9600, timeout=1)
     while True:
         if not data_queue.empty():
             data = data_queue.get()
@@ -49,7 +50,7 @@ def receive_data():
         # print(values)
         print(data)
         #TODO:
-        data_queue.put(data)
+        #   data_queue.put(data)
 
 
 def send_frame(): # conn):
@@ -153,6 +154,7 @@ def detect_fire():
 
 
 host = "192.168.1.31"
+# host = "192.168.1.5"
 port = 9977
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_socket.bind((host, port))
@@ -177,7 +179,7 @@ connected = False
 notified = False
 fire_occured = False
 frame_queue = queue.Queue()
-data_queue = queue.Queue()
+# data_queue = queue.Queue()
 
 # capture_thread = threading.Thread(target=capture_frame, daemon=True)
 capture_thread = threading.Thread(target=capture_frame, )
@@ -190,8 +192,8 @@ while not capturing:
 fire_thread = threading.Thread(target=detect_fire, )
 fire_thread.start()
 
-controls_thread = threading.Thread(target=send_controls, )
-controls_thread.start
+# controls_thread = threading.Thread(target=send_controls, )
+# controls_thread.start
 
 
 while True:
