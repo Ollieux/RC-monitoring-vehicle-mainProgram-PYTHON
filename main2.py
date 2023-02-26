@@ -166,7 +166,8 @@ server_socket.listen(1)
 fire_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'fire_detection.xml')
 
 
-cred = credentials.Certificate('Notification/pushnotifcationtest-f5539-firebase-adminsdk-2ssjk-6ca36caa53.json')
+# cred = credentials.Certificate('Notification/pushnotifcationtest-f5539-firebase-adminsdk-2ssjk-6ca36caa53.json')
+cred = credentials.Certificate('/home/rpi/Rpi-Repo/Notification/pushnotifcationtest-f5539-firebase-adminsdk-2ssjk-6ca36caa53.json')
 firebase_admin.initialize_app(cred)
 
 registration_token = 'epZx5w_RToGbXxrpEjeMXN:APA91bG2_S8rKS3enFhMq9oHwBoJt_XYn4nQEwZE3gCyb-EX-tyhR8DhgvVnjhL0fO5k0-c6ZxBagDMcv_h-iAUZWB5DEGRS9njP1ihvhH_zldBCow2_iCEmX2Rth2A0HzbJ-1R0y3Gj'
