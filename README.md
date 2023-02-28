@@ -55,4 +55,4 @@ sudo nano /etc/wpa_supplicant.conf
 sudo apt-get install conky \
 pip install imutils
 
-
+python -u Rpi-Repo/arduino.py | tee calibration.txt
