@@ -2,7 +2,7 @@ import RPi.GPIO as GPIO
 from time import sleep  # For pausing
 
 GPIO.setmode(GPIO.BCM)  # BCM numbering, not BOARD
-GPIO.setup(4, GPIO.IN)  # Sets pin4 to an input
+GPIO.setup(5, GPIO.IN)  # Sets pin4 to an input
 
 try:  # Doesn't kill the program on an error, goes to finally instead
     while True:  # MASH CTRL+C to stop the program
