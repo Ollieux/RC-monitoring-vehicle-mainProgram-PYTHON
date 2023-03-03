@@ -32,7 +32,8 @@ def send_notification(title, msg):
 
 def send_controls():
 
-    arduino = serial.Serial('/dev/ttyUSB0', 9600, timeout=1)
+    # arduino = serial.Serial('/dev/ttyUSB0', 9600, timeout=1)
+    arduino = serial.Serial(port='/dev/ttyUSB0', baudrate=115200)
     while True:
         data = data_queue.get()
         # data += '#'
