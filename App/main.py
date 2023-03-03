@@ -32,7 +32,8 @@ def send_notification(title, msg):
 
 def send_controls():
 
-    arduino = serial.Serial(port='COM11', baudrate=115200)
+    # arduino = serial.Serial('/dev/ttyUSB0', 9600, timeout=1)
+    arduino = serial.Serial(port='/dev/ttyUSB0', baudrate=115200)
     while True:
         data = data_queue.get()
         # data += '#'
@@ -159,15 +160,15 @@ def detect_fire():
 
 
 
-host = "192.168.1.5"
+host = "192.168.1.31"
 port = 9977
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_socket.bind((host, port))
 server_socket.listen(1)
 
-fire_cascade = cv2.CascadeClassifier("fire_detection.xml")
+fire_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'fire_detection.xml')
 
-cred = credentials.Certificate('Notification/pushnotifcationtest-f5539-firebase-adminsdk-2ssjk-6ca36caa53.json')
+cred = credentials.Certificate('/home/rpi/Rpi-Repo/Notification/pushnotifcationtest-f5539-firebase-adminsdk-2ssjk-6ca36caa53.json')
 firebase_admin.initialize_app(cred)
 
 registration_token = 'epZx5w_RToGbXxrpEjeMXN:APA91bG2_S8rKS3enFhMq9oHwBoJt_XYn4nQEwZE3gCyb-EX-tyhR8DhgvVnjhL0fO5k0-c6ZxBagDMcv_h-iAUZWB5DEGRS9njP1ihvhH_zldBCow2_iCEmX2Rth2A0HzbJ-1R0y3Gj'
