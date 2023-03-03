@@ -213,10 +213,10 @@ while True:
         print(client_address, " connected")
         receive_thread = threading.Thread(target=receive_data, )
         receive_thread.start()
-        # send_thread = threading.Thread(target=send_frame)
-        # send_thread.start()
+        send_thread = threading.Thread(target=send_frame)
+        send_thread.start()
         receive_thread.join()
-        # send_thread.join()
+        send_thread.join()
         print("end connection")
 
     except KeyboardInterrupt as e:
