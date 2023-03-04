@@ -43,7 +43,6 @@ def receive_data():
 
     while True:
         try:
-            # data = connection.recv(1024).decode("utf-8")
             data = connection.recv(SIZE).decode("utf-8")
             if not data:
                 print("null")
@@ -175,7 +174,7 @@ registration_token = 'epZx5w_RToGbXxrpEjeMXN:APA91bG2_S8rKS3enFhMq9oHwBoJt_XYn4n
 WIDTH = 320
 HEIGHT = 240
 FPS = 10
-SIZE = 96
+SIZE = 96 # 1024
 
 capturing = False
 detecting = False
@@ -196,11 +195,11 @@ capture_thread.start()
 while not capturing:
     print("wait for capturing")
 
-fire_thread = threading.Thread(target=detect_fire, )
-fire_thread.start()
+# fire_thread = threading.Thread(target=detect_fire, )
+# fire_thread.start()
 
-controls_thread = threading.Thread(target=send_controls, )
-controls_thread.start()
+# controls_thread = threading.Thread(target=send_controls, )
+# controls_thread.start()
 
 
 while True:
@@ -224,8 +223,8 @@ while True:
         break
 
 
-# fire_thread.join()
-# capture_thread.join()
+## fire_thread.join()
+## capture_thread.join()
 
 #TODO: pre final
 # git checkout -b pc
