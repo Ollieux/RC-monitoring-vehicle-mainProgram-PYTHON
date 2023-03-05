@@ -162,9 +162,6 @@ def detect_fire():
 
         frame = detect_frame_queue.get()
 
-        #TODO?:
-        # imutils.resize(frame, (176, 144))
-
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         flames = fire_cascade.detectMultiScale(gray, scaleFactor=1.3, minNeighbors=5)
         for (x, y, w, h) in flames:
