@@ -12,27 +12,42 @@ from firebase_admin import credentials, messaging
 
 
 
-def send_notification(title, msg):
-    message = messaging.Message(
+def send_notification(factor, _):
+
+    if factor == "fire":
+
+        title = "Fire detected"
+        message = "fire detected"
+
+    elif factor == "smoke":
+
+        title = "Smoke detected"
+        message = "smoke detected"
+
+    elif factor == "xyz":
+
+        title = "Xyz detected"
+        message = "xyz detected"
+
+    else:
+        title = ""
+        message = ""
+
+    msg = messaging.Message(
         notification=messaging.Notification(
             title=title,
-            body=msg
+            body=message
         ),
         token=registration_token,
     )
     #TODO: final out
-    response = messaging.send(message)
+    response = messaging.send(msg)
     print('Successfully sent message:', response)
-
-# def interpret_data():
-#
-#     #TODO: data = data_queue.get()
-#     pass
 
 
 def send_controls():
 
-    arduino = serial.Serial(port='COM11', baudrate=115200)
+    arduino = serial.Serial(port='COM6', baudrate=115200)
     while True:
         data = data_queue.get()
         # data += '#'
@@ -95,6 +110,7 @@ def capture_frame():
         frame = cv2.rotate(frame, cv2.ROTATE_90_COUNTERCLOCKWISE)
 
         if detecting:
+
             #TODO?: tutaj resize dla detect
             # imutils.resize(frame, (width=176, height=144))
 
@@ -109,12 +125,12 @@ def capture_frame():
         if key == ord('q'):
             break
 
-        #TODO:
-        # if not running:
-        #   break
+        if not running:
+            break
 
     # except Exception as e:
         # print("Error in capture_frames:", e)
+    capturing = False
     cap.release()
         # break
 
@@ -123,9 +139,7 @@ def detect_fire():
 
     global detecting
     detecting = True
-    #TODO:
-    # while running
-    while True:
+    while running:
 
         frame = detect_frame_queue.get()
 
@@ -140,31 +154,42 @@ def detect_fire():
             cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 2)
             print("fire detected")
 
-            # TODONE: notify()
-            global notified
-            if not notified:
+            global fire_notified, fire_time
 
-                notified = True
-                threading.Thread(target=send_notification, args=("Warning", "fire detected")).start() #TODO: temp, mq?
+            if fire_notified:
+
+                # if not time.time() - fire_time > FIRE_TIMER:
+                if time.time() - fire_time > FIRE_TIMER:
+                    fire_notified = False
+                    # break
+
+            # fire_notified = False
+
+            if not fire_notified:
+
+                threading.Thread(target=send_notification, args=("fire", "")).start()
+                fire_time = time.time()
+                fire_notified = True
 
         # TODO: final out
         cv2.imshow("Detect", frame)
         key = cv2.waitKey(1) & 0xFF
         if key == ord('q'):
+            detecting = False
             break
 
 #TODO:
 # if __name__ == '__main__':
 
 
-
+#TODO: gethostname
 host = "192.168.1.5"
 port = 9977
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_socket.bind((host, port))
 server_socket.listen(1)
 
-fire_cascade = cv2.CascadeClassifier("fire_detection.xml")
+fire_cascade = cv2.CascadeClassifier('App/fire_detection.xml')
 
 cred = credentials.Certificate('Notification/pushnotifcationtest-f5539-firebase-adminsdk-2ssjk-6ca36caa53.json')
 firebase_admin.initialize_app(cred)
@@ -175,12 +200,14 @@ WIDTH = 320
 HEIGHT = 240
 FPS = 10
 SIZE = 96 # 1024
+FIRE_TIMER = 30 #300
 
 capturing = False
 detecting = False
 connected = False
-notified = False
-fire_occured = False
+fire_notified = False
+# fire_occured = False
+fire_time = 0
 running = True
 
 send_frame_queue = queue.Queue()
@@ -191,31 +218,38 @@ data_queue = queue.Queue()
 capture_thread = threading.Thread(target=capture_frame, )
 capture_thread.start()
 
+
 #time.sleep(10)
 while not capturing:
+    #TODO: final out
+    if capturing:
+        capturing = False
     print("wait for capturing")
 
-# fire_thread = threading.Thread(target=detect_fire, )
-# fire_thread.start()
+fire_thread = threading.Thread(target=detect_fire, )
+fire_thread.start()
 
-# controls_thread = threading.Thread(target=send_controls, )
-# controls_thread.start()
+controls_thread = threading.Thread(target=send_controls, )
+controls_thread.start()
 
 
 while True:
     try:
-        connected = False
         print("Waiting for connection")
         connection, client_address = server_socket.accept()
         connected = True
         print(client_address, " connected")
         receive_thread = threading.Thread(target=receive_data, )
         receive_thread.start()
-        # send_thread = threading.Thread(target=send_frame)
-        # send_thread.start()
+        send_thread = threading.Thread(target=send_frame)
+        send_thread.start()
+        #TODO: if not capturing:
+        # backup_capture_thread = threading.Thread(target=capture_frame, )
+        # backup_capture_thread.start()
         receive_thread.join()
-        # send_thread.join()
+        send_thread.join()
         print("end connection")
+        connected = False
 
     except KeyboardInterrupt as e:
         print(e)
