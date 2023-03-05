@@ -7,32 +7,42 @@ import cv2
 import queue
 import firebase_admin
 import imutils
+import RPi.GPIO as GPIO
+import w1thermsensor
 from firebase_admin import credentials, messaging
 
 
 
 
-def send_notification(title, msg):
-    message = messaging.Message(
+def send_notification(factor, _):
+
+    title = "Warning!"
+    temperature = sensor.get_temperature()
+
+    if factor == "fire":
+        message = "fire detected, temperature: " + temperature + "*C"
+
+    elif factor == "smoke":
+
+        message = "smoke detected, temperature: " + temperature + "*C"
+
+    else:
+        message = ""
+
+    msg = messaging.Message(
         notification=messaging.Notification(
             title=title,
-            body=msg
+            body=message
         ),
         token=registration_token,
     )
     #TODO: final out
-    response = messaging.send(message)
+    response = messaging.send(msg)
     print('Successfully sent message:', response)
-
-# def interpret_data():
-#
-#     #TODO: data = data_queue.get()
-#     pass
 
 
 def send_controls():
 
-    # arduino = serial.Serial('/dev/ttyUSB0', 9600, timeout=1)
     arduino = serial.Serial(port='/dev/ttyUSB0', baudrate=115200)
     while True:
         data = data_queue.get()
@@ -44,7 +54,6 @@ def receive_data():
 
     while True:
         try:
-            # data = connection.recv(1024).decode("utf-8")
             data = connection.recv(SIZE).decode("utf-8")
             if not data:
                 print("null")
@@ -97,6 +106,7 @@ def capture_frame():
         frame = cv2.rotate(frame, cv2.ROTATE_90_COUNTERCLOCKWISE)
 
         if detecting:
+
             #TODO?: tutaj resize dla detect
             # imutils.resize(frame, (width=176, height=144))
 
@@ -111,23 +121,47 @@ def capture_frame():
         if key == ord('q'):
             break
 
-        #TODO:
-        # if not running:
-        #   break
+        if not running:
+            break
 
     # except Exception as e:
         # print("Error in capture_frames:", e)
+    capturing = False
     cap.release()
         # break
+
+
+def detect_smoke():
+    while True:
+
+        if not GPIO.input(5):
+
+            global smoke_notified, smoke_time
+
+            if smoke_notified:
+
+                # if not time.time() - fire_time > FIRE_TIMER:
+                if time.time() - smoke_time > NOTIFICATION_TIMER:
+                    smoke_notified = False
+                    # break
+
+            # fire_notified = False
+
+            if not smoke_notified:
+
+                threading.Thread(target=send_notification, args=("smoke", "")).start()
+                smoke_time = time.time()
+                smoke_notified = True
+
+
+        time.sleep(1)
 
 
 def detect_fire():
 
     global detecting
     detecting = True
-    #TODO:
-    # while running
-    while True:
+    while running:
 
         frame = detect_frame_queue.get()
 
@@ -142,24 +176,38 @@ def detect_fire():
             cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 2)
             print("fire detected")
 
-            # TODONE: notify()
-            global notified
-            if not notified:
+            global fire_notified, fire_time
 
-                notified = True
-                threading.Thread(target=send_notification, args=("Warning", "fire detected")).start() #TODO: temp, mq?
+            if fire_notified:
+
+                # if not time.time() - fire_time > FIRE_TIMER:
+                if time.time() - fire_time > NOTIFICATION_TIMER:
+                    fire_notified = False
+                    # break
+
+            # fire_notified = False
+
+            if not fire_notified:
+
+                threading.Thread(target=send_notification, args=("fire", "")).start()
+                fire_time = time.time()
+                fire_notified = True
 
         # TODO: final out
         cv2.imshow("Detect", frame)
         key = cv2.waitKey(1) & 0xFF
         if key == ord('q'):
+            detecting = False
             break
 
 #TODO:
 # if __name__ == '__main__':
 
+GPIO.setmode(GPIO.BCM)  # BCM numbering, not BOARD
+GPIO.setup(5, GPIO.IN)
+sensor = w1thermsensor.W1ThermSensor()
 
-
+#TODO: gethostname
 host = "192.168.1.31"
 port = 9977
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -176,13 +224,17 @@ registration_token = 'epZx5w_RToGbXxrpEjeMXN:APA91bG2_S8rKS3enFhMq9oHwBoJt_XYn4n
 WIDTH = 320
 HEIGHT = 240
 FPS = 10
-SIZE = 96
+SIZE = 96 # 1024
+NOTIFICATION_TIMER = 30 #300
 
 capturing = False
 detecting = False
 connected = False
-notified = False
-fire_occured = False
+fire_notified = False
+smoke_notified = False
+# fire_occured = False
+fire_time = 0
+smoke_time = 0
 running = True
 
 send_frame_queue = queue.Queue()
@@ -193,8 +245,12 @@ data_queue = queue.Queue()
 capture_thread = threading.Thread(target=capture_frame, )
 capture_thread.start()
 
+
 #time.sleep(10)
 while not capturing:
+    #TODO: final out
+    if capturing:
+        capturing = False
     print("wait for capturing")
 
 fire_thread = threading.Thread(target=detect_fire, )
@@ -206,7 +262,6 @@ controls_thread.start()
 
 while True:
     try:
-        connected = False
         print("Waiting for connection")
         connection, client_address = server_socket.accept()
         connected = True
@@ -215,18 +270,23 @@ while True:
         receive_thread.start()
         send_thread = threading.Thread(target=send_frame)
         send_thread.start()
+        #TODO: if not capturing:
+        # backup_capture_thread = threading.Thread(target=capture_frame, )
+        # backup_capture_thread.start()
         receive_thread.join()
         send_thread.join()
         print("end connection")
+        connected = False
 
     except KeyboardInterrupt as e:
         print(e)
         running = False
+        GPIO.cleanup()
         break
 
 
-# fire_thread.join()
-# capture_thread.join()
+## fire_thread.join()
+## capture_thread.join()
 
 #TODO: pre final
 # git checkout -b pc
