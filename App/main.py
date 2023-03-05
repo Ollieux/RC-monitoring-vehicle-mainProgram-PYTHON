@@ -84,9 +84,9 @@ def capture_frame():
     global capturing
 
     cap = cv2.VideoCapture(0)
-    # cap.set(3, WIDTH)
-    # cap.set(4, HEIGHT)
-    ## cap.set(5, FPS)
+    cap.set(3, WIDTH)
+    cap.set(4, HEIGHT)
+    cap.set(5, FPS)
     # while True:
         # try:
     capturing = True
@@ -109,6 +109,7 @@ def capture_frame():
 
             #TODO?: tutaj resize dla detect
             # imutils.resize(frame, (width=176, height=144))
+            # frame = cv2.resize(frame, (176, 144))
 
             detect_frame_queue.put(frame)
 
