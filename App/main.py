@@ -7,8 +7,8 @@ import cv2
 import queue
 import firebase_admin
 import imutils
-import RPi.GPIO as GPIO
-import w1thermsensor
+#import RPi.GPIO as GPIO
+# import w1thermsensor
 from firebase_admin import credentials, messaging
 
 
@@ -17,14 +17,14 @@ from firebase_admin import credentials, messaging
 def send_notification(factor, _):
 
     title = "Warning!"
-    temperature = sensor.get_temperature()
+    # temperature = sensor.get_temperature()
 
     if factor == "fire":
-        message = "fire detected, temperature: " + temperature + "*C"
+        message = "fire detected"#, temperature: " + temperature + "*C"
 
     elif factor == "smoke":
 
-        message = "smoke detected, temperature: " + temperature + "*C"
+        message = "smoke detected"#, temperature: " + temperature + "*C"
 
     else:
         message = ""
@@ -131,30 +131,26 @@ def capture_frame():
         # break
 
 
-def detect_smoke():
-    while True:
-
-        if not GPIO.input(5):
-
-            global smoke_notified, smoke_time
-
-            if smoke_notified:
-
-                # if not time.time() - fire_time > FIRE_TIMER:
-                if time.time() - smoke_time > NOTIFICATION_TIMER:
-                    smoke_notified = False
-                    # break
-
-            # fire_notified = False
-
-            if not smoke_notified:
-
-                threading.Thread(target=send_notification, args=("smoke", "")).start()
-                smoke_time = time.time()
-                smoke_notified = True
-
-
-        time.sleep(1)
+# def detect_smoke():
+#     while True:
+#
+#         if not GPIO.input(5):
+#
+#             global smoke_notified, smoke_time
+#
+#             if smoke_notified:
+#
+#                 if time.time() - smoke_time > NOTIFICATION_TIMER:
+#                     smoke_notified = False
+#
+#             if not smoke_notified:
+#
+#                 threading.Thread(target=send_notification, args=("smoke", "")).start()
+#                 smoke_time = time.time()
+#                 smoke_notified = True
+#
+#
+#         time.sleep(1)
 
 
 def detect_fire():
@@ -203,9 +199,9 @@ def detect_fire():
 #TODO:
 # if __name__ == '__main__':
 
-GPIO.setmode(GPIO.BCM)  # BCM numbering, not BOARD
-GPIO.setup(5, GPIO.IN)
-sensor = w1thermsensor.W1ThermSensor()
+# GPIO.setmode(GPIO.BCM)  # BCM numbering, not BOARD
+# GPIO.setup(5, GPIO.IN)
+# sensor = w1thermsensor.W1ThermSensor()
 
 #TODO: gethostname
 host = "192.168.1.31"
@@ -259,6 +255,9 @@ fire_thread.start()
 controls_thread = threading.Thread(target=send_controls, )
 controls_thread.start()
 
+# smoke_thread = threading.Thread(target=detect_smoke, )
+# smoke_thread.start()
+
 
 while True:
     try:
@@ -281,7 +280,7 @@ while True:
     except KeyboardInterrupt as e:
         print(e)
         running = False
-        GPIO.cleanup()
+        # GPIO.cleanup()
         break
 
 
