@@ -1,6 +1,11 @@
+import time
+import RPi.GPIO as GPIO
 import w1thermsensor
 
 sensor = w1thermsensor.W1ThermSensor()
 
-temp = sensor.get_temperature()
-print(temp)
+while True:
+    temperatura = sensor.get_temperature()
+    print(temperatura)
+
+    time.sleep(1)
