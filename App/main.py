@@ -20,7 +20,7 @@ def send_notification(factor, _):
     temperature = sensor.get_temperature()
 
     if factor == "fire":
-        message = "fire detected temperature: " + temperature + "*C"
+        message = "fire detected, temperature: " + str(temperature) + "*C"
 
     elif factor == "smoke":
 
