@@ -202,9 +202,7 @@ def detect_fire():
 sensor = w1thermsensor.W1ThermSensor()
 
 #TODO: gethostname
-myHostName = socket.gethostname()
-
-host = socket.gethostbyname(socket.gethostname())
+host = socket.gethostbyname(socket.gethostname() + ".local")
 
 print("IP address of the localhost is {}".format(host))
 # host = "192.168.1.31"
