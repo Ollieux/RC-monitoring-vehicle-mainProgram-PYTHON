@@ -1,7 +1,10 @@
 import RPi.GPIO as GPIO # Import Raspberry Pi GPIO library
+import os
 
 def button_callback(channel):
     print("Button was pushed!")
+    os.system("sudo reboot")
+
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
