@@ -8,7 +8,7 @@ import queue
 import firebase_admin
 import imutils
 #import RPi.GPIO as GPIO
-# import w1thermsensor
+import w1thermsensor
 from firebase_admin import credentials, messaging
 
 
@@ -17,10 +17,10 @@ from firebase_admin import credentials, messaging
 def send_notification(factor, _):
 
     title = "Warning!"
-    # temperature = sensor.get_temperature()
+    temperature = sensor.get_temperature()
 
     if factor == "fire":
-        message = "fire detected"#, temperature: " + temperature + "*C"
+        message = "fire detected temperature: " + temperature + "*C"
 
     elif factor == "smoke":
 
@@ -162,9 +162,6 @@ def detect_fire():
 
         frame = detect_frame_queue.get()
 
-        #TODO?:
-        # imutils.resize(frame, (176, 144))
-
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         flames = fire_cascade.detectMultiScale(gray, scaleFactor=1.3, minNeighbors=5)
         for (x, y, w, h) in flames:
@@ -202,7 +199,7 @@ def detect_fire():
 
 # GPIO.setmode(GPIO.BCM)  # BCM numbering, not BOARD
 # GPIO.setup(5, GPIO.IN)
-# sensor = w1thermsensor.W1ThermSensor()
+sensor = w1thermsensor.W1ThermSensor()
 
 #TODO: gethostname
 host = "192.168.1.31"
