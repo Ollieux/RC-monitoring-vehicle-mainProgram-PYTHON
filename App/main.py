@@ -251,6 +251,7 @@ while not capturing:
     #TODO: final out
     if capturing:
         capturing = False
+    pass
 
 
 fire_thread = threading.Thread(target=detect_fire, )
