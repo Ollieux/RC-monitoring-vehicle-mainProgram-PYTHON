@@ -246,11 +246,12 @@ capture_thread.start()
 
 
 #time.sleep(10)
+print("wait for capturing")
 while not capturing:
     #TODO: final out
     if capturing:
         capturing = False
-    print("wait for capturing")
+
 
 fire_thread = threading.Thread(target=detect_fire, )
 fire_thread.start()
