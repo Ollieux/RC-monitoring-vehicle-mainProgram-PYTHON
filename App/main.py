@@ -7,7 +7,7 @@ import cv2
 import queue
 import firebase_admin
 import imutils
-#import RPi.GPIO as GPIO
+import RPi.GPIO as GPIO
 import w1thermsensor
 from firebase_admin import credentials, messaging
 
@@ -24,7 +24,7 @@ def send_notification(factor, _):
 
     elif factor == "smoke":
 
-        message = "smoke detected"#, temperature: " + temperature + "*C"
+        message = "smoke detected,temperature: " + str(temperature) + "*C"
 
     else:
         message = ""
@@ -132,26 +132,27 @@ def capture_frame():
         # break
 
 
-# def detect_smoke():
-#     while True:
-#
-#         if not GPIO.input(5):
-#
-#             global smoke_notified, smoke_time
-#
-#             if smoke_notified:
-#
-#                 if time.time() - smoke_time > NOTIFICATION_TIMER:
-#                     smoke_notified = False
-#
-#             if not smoke_notified:
-#
-#                 threading.Thread(target=send_notification, args=("smoke", "")).start()
-#                 smoke_time = time.time()
-#                 smoke_notified = True
-#
-#
-#         time.sleep(1)
+def detect_smoke():
+    while True:
+
+        # if not GPIO.input(5):
+        if GPIO.input(18):
+
+            global smoke_notified, smoke_time
+
+            if smoke_notified:
+
+                if time.time() - smoke_time > NOTIFICATION_TIMER:
+                    smoke_notified = False
+
+            if not smoke_notified:
+
+                threading.Thread(target=send_notification, args=("smoke", "")).start()
+                smoke_time = time.time()
+                smoke_notified = True
+
+
+        time.sleep(1)
 
 
 def detect_fire():
@@ -199,13 +200,15 @@ def detect_fire():
 
 # GPIO.setmode(GPIO.BCM)  # BCM numbering, not BOARD
 # GPIO.setup(5, GPIO.IN)
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(18, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+
 sensor = w1thermsensor.W1ThermSensor()
 
-#TODO: gethostname
 host = socket.gethostbyname(socket.gethostname() + ".local")
 
 print("IP address of the localhost is {}".format(host))
-# host = "192.168.1.31"
 port = 9977
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_socket.bind((host, port))
@@ -258,8 +261,8 @@ fire_thread.start()
 controls_thread = threading.Thread(target=send_controls, )
 controls_thread.start()
 
-# smoke_thread = threading.Thread(target=detect_smoke, )
-# smoke_thread.start()
+smoke_thread = threading.Thread(target=detect_smoke, )
+smoke_thread.start()
 
 
 while True:
@@ -283,7 +286,7 @@ while True:
     except KeyboardInterrupt as e:
         print(e)
         running = False
-        # GPIO.cleanup()
+        GPIO.cleanup()
         break
 
 
