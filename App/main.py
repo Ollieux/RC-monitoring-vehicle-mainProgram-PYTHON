@@ -197,12 +197,13 @@ def detect_fire():
 
 #TODO:
 # if __name__ == '__main__':
-
+GPIO.setwarnings(False)
 # GPIO.setmode(GPIO.BCM)  # BCM numbering, not BOARD
 # GPIO.setup(5, GPIO.IN)
-GPIO.setwarnings(False)
+
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(18, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(18, GPIO.IN)
+# GPIO.setup(18, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 sensor = w1thermsensor.W1ThermSensor()
 
