@@ -8,7 +8,7 @@ import queue
 import firebase_admin
 import imutils
 #import RPi.GPIO as GPIO
-# import w1thermsensor
+import w1thermsensor
 from firebase_admin import credentials, messaging
 
 
@@ -17,10 +17,10 @@ from firebase_admin import credentials, messaging
 def send_notification(factor, _):
 
     title = "Warning!"
-    # temperature = sensor.get_temperature()
+    temperature = sensor.get_temperature()
 
     if factor == "fire":
-        message = "fire detected"#, temperature: " + temperature + "*C"
+        message = "fire detected temperature: " + temperature + "*C"
 
     elif factor == "smoke":
 
@@ -199,7 +199,7 @@ def detect_fire():
 
 # GPIO.setmode(GPIO.BCM)  # BCM numbering, not BOARD
 # GPIO.setup(5, GPIO.IN)
-# sensor = w1thermsensor.W1ThermSensor()
+sensor = w1thermsensor.W1ThermSensor()
 
 #TODO: gethostname
 host = "192.168.1.31"
