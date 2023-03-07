@@ -259,11 +259,10 @@ capture_thread.start()
 
 
 #time.sleep(10)
+#TODO: final out
 print("wait for capturing")
 while not capturing:
-    #TODO: final out
-    if capturing:
-        capturing = False
+    
     pass
 
 
