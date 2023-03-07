@@ -1,3 +1,4 @@
+import os
 import socket
 import struct
 import threading
@@ -40,6 +41,9 @@ def send_notification(factor, _):
     response = messaging.send(msg)
     print('Successfully sent message:', response)
 
+def button_callback(channel):
+    print("Button was pushed!")
+    os.system("sudo reboot")
 
 def send_controls():
 
@@ -136,7 +140,7 @@ def detect_smoke():
     while True:
 
         # if not GPIO.input(5):
-        if GPIO.input(18):
+        if not GPIO.input(18):
 
             global smoke_notified, smoke_time
 
@@ -195,6 +199,11 @@ def detect_fire():
             detecting = False
             break
 
+def button_callback(channel):
+    print("Button was pushed!")
+    GPIO.cleanup();
+    os.system("sudo reboot")
+
 #TODO:
 # if __name__ == '__main__':
 GPIO.setwarnings(False)
@@ -203,6 +212,8 @@ GPIO.setwarnings(False)
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(18, GPIO.IN)
+GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.add_event_detect(17, GPIO.RISING, callback=button_callback)
 # GPIO.setup(18, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 sensor = w1thermsensor.W1ThermSensor()
