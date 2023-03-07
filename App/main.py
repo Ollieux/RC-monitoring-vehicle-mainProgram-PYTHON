@@ -39,10 +39,10 @@ def send_notification(factor, _):
     )
     #TODO: final out
     response = messaging.send(msg)
-    print('Successfully sent message:', response)
+    #print('Successfully sent message:', response)
 
 def button_callback(channel):
-    print("Button was pushed!")
+    #print("Button was pushed!")
     os.system("sudo reboot")
 
 def send_controls():
@@ -60,12 +60,12 @@ def receive_data():
         try:
             data = connection.recv(SIZE).decode("utf-8")
             if not data:
-                print("null")
+                #print("null")
                 break
-            print(data)
+            #print(data)
             data_queue.put(data)
         except Exception as e:
-            print(e)
+            #print(e)
             break
 
 
@@ -78,7 +78,7 @@ def send_frame():
             connection.sendall(struct.pack("!i", len(data)) + data)
             # conn.sendall(struct.pack("!i", len(data)) + data)
         except Exception as e:
-            print(e)
+            #print(e)
             # conn.close()
             break
 
@@ -130,7 +130,7 @@ def capture_frame():
             break
 
     # except Exception as e:
-        # print("Error in capture_frames:", e)
+        # #print("Error in capture_frames:", e)
     capturing = False
     cap.release()
         # break
@@ -173,7 +173,7 @@ def detect_fire():
 
             # TODO: final out
             cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 2)
-            print("fire detected")
+            #print("fire detected")
 
             global fire_notified, fire_time
 
@@ -200,7 +200,7 @@ def detect_fire():
             break
 
 def button_callback(channel):
-    print("Button was pushed!")
+    #print("Button was pushed!")
     GPIO.cleanup();
     os.system("sudo reboot")
 
@@ -220,7 +220,7 @@ sensor = w1thermsensor.W1ThermSensor()
 
 host = socket.gethostbyname(socket.gethostname() + ".local")
 
-print("IP address of the localhost is {}".format(host))
+#print("IP address of the localhost is {}".format(host))
 port = 9977
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_socket.bind((host, port))
@@ -260,7 +260,7 @@ capture_thread.start()
 
 #time.sleep(10)
 #TODO: final out
-print("wait for capturing")
+#print("wait for capturing")
 while not capturing:
     
     pass
@@ -278,10 +278,10 @@ smoke_thread.start()
 
 while True:
     try:
-        print("Waiting for connection")
+        #print("Waiting for connection")
         connection, client_address = server_socket.accept()
         connected = True
-        print(client_address, " connected")
+        #print(client_address, " connected")
         receive_thread = threading.Thread(target=receive_data, )
         receive_thread.start()
         send_thread = threading.Thread(target=send_frame)
@@ -291,11 +291,11 @@ while True:
         # backup_capture_thread.start()
         receive_thread.join()
         send_thread.join()
-        print("end connection")
+        #print("end connection")
         connected = False
 
     except KeyboardInterrupt as e:
-        print(e)
+        #print(e)
         running = False
         GPIO.cleanup()
         break
