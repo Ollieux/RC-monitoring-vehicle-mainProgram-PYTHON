@@ -118,6 +118,8 @@ def capture_frame():
             detect_frame_queue.put(frame)
 
         if connected:
+            #temperature = sensor.get_temperature()
+            #frame = cv2.putText(frame, 'temp: ' + str(temperature) + '*C', (10, 40), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
             send_frame_queue.put(frame)
 
         #TODO: final out
@@ -219,8 +221,10 @@ GPIO.add_event_detect(17, GPIO.RISING, callback=button_callback)
 sensor = w1thermsensor.W1ThermSensor()
 
 host = socket.gethostbyname(socket.gethostname() + ".local")
-
+#TODO:
+# final out
 print("IP address of the localhost is {}".format(host))
+
 port = 9977
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_socket.bind((host, port))
