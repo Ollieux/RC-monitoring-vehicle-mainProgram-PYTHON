@@ -73,6 +73,8 @@ def send_frame():
 
     while True:
         frame = send_frame_queue.get()
+        temperature = sensor.get_temperature()
+        frame = cv2.putText(frame, 'temp: ' + str(temperature) + '*C', (10, 40), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
         try:
             data = cv2.imencode('.jpg', frame)[1].tobytes()
             connection.sendall(struct.pack("!i", len(data)) + data)
@@ -118,8 +120,6 @@ def capture_frame():
             detect_frame_queue.put(frame)
 
         if connected:
-            temperature = sensor.get_temperature()
-            frame = cv2.putText(frame, 'temp: ' + str(temperature) + '*C', (10, 40), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
             send_frame_queue.put(frame)
 
         #TODO: final out
