@@ -25,7 +25,7 @@ def send_notification(factor, _):
 
     elif factor == "smoke":
 
-        message = "smoke detected,temperature: " + str(temperature) + "*C"
+        message = "smoke detected, temperature: " + str(temperature) + "*C"
 
     else:
         message = ""
@@ -42,12 +42,14 @@ def send_notification(factor, _):
     print('Successfully sent message:', response)
 
 def button_callback(channel):
+
     print("Button was pushed!")
     os.system("sudo reboot")
 
 def send_controls():
 
     arduino = serial.Serial(port='/dev/ttyUSB0', baudrate=115200)
+
     while True:
         data = data_queue.get()
         # data += '#'
@@ -134,18 +136,6 @@ def capture_frame():
 
         if connected:
 
-            # try:
-            #     temperature = temp_queue.get(block=False)
-            #
-            # except queue.Empty as e:
-            #     print(e)
-            #     temperature = gtemperature
-            #
-            # gtemperature = temperature
-            #
-            # frame = cv2.putText(frame, 'temp: ' + str(temperature) + '*C', (10, 10), cv2.FONT_HERSHEY_SIMPLEX, 0.4,
-            #                     (0, 0, 255), 1)
-
             send_frame_queue.put(frame)
 
         #TODO: final out
@@ -165,6 +155,7 @@ def capture_frame():
 
 
 def detect_smoke():
+
     while True:
 
         # if not GPIO.input(5):
@@ -299,6 +290,7 @@ capture_thread.start()
 #time.sleep(10)
 #TODO: final out
 print("wait for capturing")
+
 while not capturing:
     
     pass
@@ -348,5 +340,6 @@ while True:
 #TODO: pre final
 # git checkout -b pc
 # git merge main
-# git checkout -b main
+# git checkout main
+# git merge dev-rpi
 # TODOs final/final out
