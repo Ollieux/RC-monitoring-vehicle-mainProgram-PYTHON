@@ -76,16 +76,16 @@ def send_frame():
     while True:
         frame = send_frame_queue.get()
 
-        # try:
-        #     temperature = temp_queue.get(block=False)
-        #
-        # except queue.Empty as e:
-        #     print(e)
-        #     temperature = gtemperature
-        #
-        # gtemperature = temperature
-        #
-        # frame = cv2.putText(frame, 'temp: ' + str(temperature) + '*C', (10, 10), cv2.FONT_HERSHEY_SIMPLEX, 0.4, (0, 0, 255), 1)
+        try:
+            temperature = temp_queue.get(block=False)
+
+        except queue.Empty as e:
+            print(e)
+            temperature = gtemperature
+
+        gtemperature = temperature
+
+        frame = cv2.putText(frame, 'temp: ' + str(temperature) + '*C', (10, 10), cv2.FONT_HERSHEY_SIMPLEX, 0.4, (0, 0, 255), 1)
 
         try:
             data = cv2.imencode('.jpg', frame)[1].tobytes()
@@ -133,17 +133,17 @@ def capture_frame():
 
         if connected:
 
-            try:
-                temperature = temp_queue.get(block=False)
-
-            except queue.Empty as e:
-                print(e)
-                temperature = gtemperature
-
-            gtemperature = temperature
-
-            frame = cv2.putText(frame, 'temp: ' + str(temperature) + '*C', (10, 10), cv2.FONT_HERSHEY_SIMPLEX, 0.4,
-                                (0, 0, 255), 1)
+            # try:
+            #     temperature = temp_queue.get(block=False)
+            #
+            # except queue.Empty as e:
+            #     print(e)
+            #     temperature = gtemperature
+            #
+            # gtemperature = temperature
+            #
+            # frame = cv2.putText(frame, 'temp: ' + str(temperature) + '*C', (10, 10), cv2.FONT_HERSHEY_SIMPLEX, 0.4,
+            #                     (0, 0, 255), 1)
 
             send_frame_queue.put(frame)
 
@@ -312,7 +312,7 @@ controls_thread.start()
 smoke_thread = threading.Thread(target=detect_smoke, )
 smoke_thread.start()
 
-temp_thread = threading.Thread(target=read_temp,)
+temp_thread = threading.Thread(target=read_temp, )
 temp_thread.start()
 
 
