@@ -71,10 +71,22 @@ def receive_data():
 
 def send_frame():
 
+    global gtemperature
+
     while True:
         frame = send_frame_queue.get()
-        temperature = sensor.get_temperature()
-        frame = cv2.putText(frame, 'temp: ' + str(temperature) + '*C', (10, 10), cv2.FONT_HERSHEY_SIMPLEX, 0.2, (0, 0, 255), 2)
+
+        try:
+            temperature = temp_queue.get(block=False)
+
+        except queue.Empty as e:
+            print(e)
+            temperature = gtemperature
+
+        gtemperature = temperature
+
+        frame = cv2.putText(frame, 'temp: ' + str(temperature) + '*C', (10, 10), cv2.FONT_HERSHEY_SIMPLEX, 0.4, (0, 0, 255), 1.5)
+
         try:
             data = cv2.imencode('.jpg', frame)[1].tobytes()
             connection.sendall(struct.pack("!i", len(data)) + data)
@@ -201,10 +213,18 @@ def detect_fire():
             detecting = False
             break
 
+def read_temp():
+
+    if connected:
+        temp_queue.put(sensor.get_temperature())
+
+
+
 def button_callback(channel):
     print("Button was pushed!")
     GPIO.cleanup();
     os.system("sudo reboot")
+
 
 #TODO:
 # if __name__ == '__main__':
@@ -251,11 +271,13 @@ smoke_notified = False
 # fire_occured = False
 fire_time = 0
 smoke_time = 0
+gtemperature = sensor.get_temperature()
 running = True
 
 send_frame_queue = queue.Queue()
 detect_frame_queue = queue.Queue()
 data_queue = queue.Queue()
+temp_queue = queue.Queue()
 
 ## capture_thread = threading.Thread(target=capture_frame, daemon=True)
 capture_thread = threading.Thread(target=capture_frame, )
@@ -278,6 +300,9 @@ controls_thread.start()
 
 smoke_thread = threading.Thread(target=detect_smoke, )
 smoke_thread.start()
+
+temp_thread = threading.Thread(target=read_temp,)
+temp_thread.start()
 
 
 while True:
