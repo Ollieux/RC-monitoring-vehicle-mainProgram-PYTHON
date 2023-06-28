@@ -76,16 +76,16 @@ def send_frame():
     while True:
         frame = send_frame_queue.get()
 
-        try:
-            temperature = temp_queue.get(block=False)
-
-        except queue.Empty as e:
-            print(e)
-            temperature = gtemperature
-
-        gtemperature = temperature
-
-        frame = cv2.putText(frame, 'temp: ' + str(temperature) + '*C', (10, 10), cv2.FONT_HERSHEY_SIMPLEX, 0.4, (0, 0, 255), 1)
+        # try:
+        #     temperature = temp_queue.get(block=False)
+        #
+        # except queue.Empty as e:
+        #     print(e)
+        #     temperature = gtemperature
+        #
+        # gtemperature = temperature
+        #
+        # frame = cv2.putText(frame, 'temp: ' + str(temperature) + '*C', (10, 10), cv2.FONT_HERSHEY_SIMPLEX, 0.4, (0, 0, 255), 1)
 
         try:
             data = cv2.imencode('.jpg', frame)[1].tobytes()
@@ -132,6 +132,19 @@ def capture_frame():
             detect_frame_queue.put(frame)
 
         if connected:
+
+            try:
+                temperature = temp_queue.get(block=False)
+
+            except queue.Empty as e:
+                print(e)
+                temperature = gtemperature
+
+            gtemperature = temperature
+
+            frame = cv2.putText(frame, 'temp: ' + str(temperature) + '*C', (10, 10), cv2.FONT_HERSHEY_SIMPLEX, 0.4,
+                                (0, 0, 255), 1)
+
             send_frame_queue.put(frame)
 
         #TODO: final out
@@ -266,7 +279,6 @@ detecting = False
 connected = False
 fire_notified = False
 smoke_notified = False
-# fire_occured = False
 fire_time = 0
 smoke_time = 0
 gtemperature = sensor.get_temperature()
