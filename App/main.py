@@ -310,8 +310,8 @@ fire_thread.start()
 controls_thread = threading.Thread(target=send_controls, )
 controls_thread.start()
 
-smoke_thread = threading.Thread(target=detect_smoke, )
-smoke_thread.start()
+# smoke_thread = threading.Thread(target=detect_smoke, )
+# smoke_thread.start()
 
 temp_thread = threading.Thread(target=read_temp, )
 temp_thread.start()
@@ -325,7 +325,7 @@ while True:
         print(client_address, " connected")
         receive_thread = threading.Thread(target=receive_data, )
         receive_thread.start()
-        send_thread = threading.Thread(target=send_frame)
+        send_thread = threading.Thread(target=send_frame, )
         send_thread.start()
         #TODO: if not capturing:
         # backup_capture_thread = threading.Thread(target=capture_frame, )
