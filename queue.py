@@ -1,17 +1,17 @@
 import queue
 
 c= 7
-a = queue.Queue()
+q = queue.Queue()
 
-a.put(5)
-a.put(3)
+q.put(5)
+q.put(3)
 
 
 for i in range(10):
 
     try:
-        b = a.get()
-        print(b)
+        qq = q.get()
+        print(qq)
 
     except queue.Empty as e:
         print(e)
