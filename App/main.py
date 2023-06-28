@@ -72,20 +72,21 @@ def receive_data():
 def send_frame():
 
     global gtemperature
+    temp = gtemperature
 
     while True:
         frame = send_frame_queue.get()
 
         try:
-            temperature = temp_queue.get(block=False)
+            temp = temp_queue.get(block=False)
 
         except queue.Empty as e:
             print(e)
-            temperature = gtemperature
 
-        gtemperature = temperature
+        finally:
+            gtemperature = temp
 
-        frame = cv2.putText(frame, 'temp: ' + str(temperature) + '*C', (10, 10), cv2.FONT_HERSHEY_SIMPLEX, 0.4, (0, 0, 255), 1)
+        frame = cv2.putText(frame, 'temp: ' + str(temp) + '*C', (10, 10), cv2.FONT_HERSHEY_SIMPLEX, 0.4, (0, 0, 255), 1)
 
         try:
             data = cv2.imencode('.jpg', frame)[1].tobytes()
