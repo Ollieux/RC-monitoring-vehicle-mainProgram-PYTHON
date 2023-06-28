@@ -282,7 +282,7 @@ fire_notified = False
 smoke_notified = False
 fire_time = 0
 smoke_time = 0
-gtemperature = sensor.get_temperature() #TODO: change -999
+gtemperature = 0 # sensor.get_temperature()
 running = True
 
 send_frame_queue = queue.Queue()
