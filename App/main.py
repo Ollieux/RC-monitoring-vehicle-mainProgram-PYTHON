@@ -71,7 +71,7 @@ def receive_data():
 
 def send_frame():
 
-    global gtemperature
+    # global gtemperature
 
     while True:
         frame = send_frame_queue.get()
@@ -231,7 +231,7 @@ def read_temp():
     while connected:
         read = sensor.get_temperature()
         temp_queue.put(read)
-        time.sleep(0.5)
+        # time.sleep(0.5)
 
 
 
