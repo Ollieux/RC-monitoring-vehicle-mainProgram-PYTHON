@@ -99,7 +99,7 @@ def send_frame():
 
 def capture_frame():
 
-    global capturing
+    global capturing, gtemperature
 
     cap = cv2.VideoCapture(0)
     cap.set(3, WIDTH)
