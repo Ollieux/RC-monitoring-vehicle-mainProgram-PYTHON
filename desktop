@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=Main
+Exec=/bin/bash -c 'source /home/project/env/bin/activate && /usr/bin/python /home/Rpi-Repo/App/main.py'
