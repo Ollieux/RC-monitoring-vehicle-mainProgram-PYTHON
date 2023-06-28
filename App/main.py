@@ -220,10 +220,11 @@ def detect_fire():
 
 def read_temp():
 
-    while connected:
-        read = sensor.get_temperature()
-        temp_queue.put(read)
-        time.sleep(1)
+    while True:
+        while connected:
+            read = sensor.get_temperature()
+            temp_queue.put(read)
+            time.sleep(1)
 
 
 
@@ -307,7 +308,6 @@ controls_thread.start()
 
 temp_thread = threading.Thread(target=read_temp, )
 temp_thread.start()
-
 
 while True:
     try:
