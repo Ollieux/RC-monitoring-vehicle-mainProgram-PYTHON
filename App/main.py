@@ -85,7 +85,7 @@ def send_frame():
 
         gtemperature = temperature
 
-        frame = cv2.putText(frame, 'temp: ' + str(temperature) + '*C', (10, 10), cv2.FONT_HERSHEY_SIMPLEX, 0.4, (0, 0, 255), 1.5)
+        frame = cv2.putText(frame, 'temp: ' + str(temperature) + '*C', (10, 10), cv2.FONT_HERSHEY_SIMPLEX, 0.4, (0, 0, 255), 1)
 
         try:
             data = cv2.imencode('.jpg', frame)[1].tobytes()
@@ -216,6 +216,7 @@ def detect_fire():
 def read_temp():
 
     if connected:
+        # TODO: sleep(0.1)
         temp_queue.put(sensor.get_temperature())
 
 
@@ -225,9 +226,6 @@ def button_callback(channel):
     GPIO.cleanup();
     os.system("sudo reboot")
 
-
-#TODO:
-# if __name__ == '__main__':
 GPIO.setwarnings(False)
 # GPIO.setmode(GPIO.BCM)  # BCM numbering, not BOARD
 # GPIO.setup(5, GPIO.IN)
