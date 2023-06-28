@@ -231,7 +231,7 @@ def read_temp():
     while connected:
         read = sensor.get_temperature()
         temp_queue.put(read)
-        # time.sleep(0.5)
+        time.sleep(0.1)
 
 
 
@@ -282,7 +282,7 @@ fire_notified = False
 smoke_notified = False
 fire_time = 0
 smoke_time = 0
-gtemperature = sensor.get_temperature()
+gtemperature = sensor.get_temperature() #TODO: change -999
 running = True
 
 send_frame_queue = queue.Queue()
