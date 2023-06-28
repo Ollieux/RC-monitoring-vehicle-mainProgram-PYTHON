@@ -88,7 +88,7 @@ def send_frame():
         finally:
             gtemperature = temp
 
-        sframe = cv2.putText(sframe, 'temp: ' + str(temp) + '*C', (10, 10), cv2.FONT_HERSHEY_SIMPLEX, 0.4, (0, 0, 255), 1)
+        sframe = cv2.putText(sframe, 'temp: ' + str(temp) + '*C', (10, 10), cv2.FONT_HERSHEY_SIMPLEX, 0.4, (255, 0, 255), 1)
 
         try:
             data = cv2.imencode('.jpg', sframe)[1].tobytes()
