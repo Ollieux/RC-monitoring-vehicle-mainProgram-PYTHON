@@ -80,8 +80,8 @@ def send_frame():
         try:
             temp = temp_queue.get(block=False)
 
-        except queue.Empty as e:
-            print(e)
+        except queue.Empty:
+            pass
 
         finally:
             gtemperature = temp
