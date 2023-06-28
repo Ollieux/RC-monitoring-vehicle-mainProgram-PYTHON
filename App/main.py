@@ -77,7 +77,7 @@ def send_frame():
     temp = gtemperature
 
     while True:
-        frame = send_frame_queue.get()
+        sframe = send_frame_queue.get()
 
         try:
             temp = temp_queue.get(block=False)
@@ -88,10 +88,10 @@ def send_frame():
         finally:
             gtemperature = temp
 
-        frame = cv2.putText(frame, 'temp: ' + str(temp) + '*C', (10, 10), cv2.FONT_HERSHEY_SIMPLEX, 0.4, (0, 0, 255), 1)
+        sframe = cv2.putText(sframe, 'temp: ' + str(temp) + '*C', (10, 10), cv2.FONT_HERSHEY_SIMPLEX, 0.4, (0, 0, 255), 1)
 
         try:
-            data = cv2.imencode('.jpg', frame)[1].tobytes()
+            data = cv2.imencode('.jpg', sframe)[1].tobytes()
             connection.sendall(struct.pack("!i", len(data)) + data)
             # conn.sendall(struct.pack("!i", len(data)) + data)
         except Exception as e:
@@ -184,14 +184,14 @@ def detect_fire():
     detecting = True
     while running:
 
-        frame = detect_frame_queue.get()
+        dframe = detect_frame_queue.get()
 
-        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        gray = cv2.cvtColor(dframe, cv2.COLOR_BGR2GRAY)
         flames = fire_cascade.detectMultiScale(gray, scaleFactor=1.3, minNeighbors=5)
         for (x, y, w, h) in flames:
 
             # TODO: final out
-            cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 2)
+            cv2.rectangle(dframe, (x, y), (x + w, y + h), (255, 0, 0), 2)
             print("fire detected")
 
             global fire_notified, fire_time
@@ -212,7 +212,7 @@ def detect_fire():
                 fire_notified = True
 
         # TODO: final out
-        cv2.imshow("Detect", frame)
+        cv2.imshow("Detect", dframe)
         key = cv2.waitKey(1) & 0xFF
         if key == ord('q'):
             detecting = False
