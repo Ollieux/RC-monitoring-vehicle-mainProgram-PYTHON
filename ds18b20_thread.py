@@ -27,6 +27,7 @@ while(True):
         print(read)
     except queue.Empty:
         # print(":(")
+        pass
 
 
 print("hello2")
