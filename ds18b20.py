@@ -8,4 +8,4 @@ while True:
     temperatura = sensor.get_temperature()
     print(temperatura)
 
-    time.sleep(0.1)
+    # time.sleep(0.1)
