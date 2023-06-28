@@ -26,7 +26,7 @@ while(True):
         read = temp_queue.get(block=False)
         print(read)
     except queue.Empty:
-        print(":(")
+        # print(":(")
 
 
 print("hello2")
