@@ -1,8 +1,9 @@
 import time
 import RPi.GPIO as GPIO
 import w1thermsensor
-import threading
 import queue
+import threading
+
 
 sensor = w1thermsensor.W1ThermSensor()
 temp_queue = queue.Queue()
