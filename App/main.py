@@ -71,7 +71,7 @@ def receive_data():
 
 def send_frame():
 
-    # global gtemperature
+    global gtemperature
 
     while True:
         frame = send_frame_queue.get()
@@ -99,7 +99,7 @@ def send_frame():
 
 def capture_frame():
 
-    global capturing, gtemperature
+    global capturing
 
     cap = cv2.VideoCapture(0)
     cap.set(3, WIDTH)
