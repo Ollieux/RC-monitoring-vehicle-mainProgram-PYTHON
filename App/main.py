@@ -231,7 +231,7 @@ def read_temp():
     while connected:
         read = sensor.get_temperature()
         temp_queue.put(read)
-        time.sleep(0.1)
+        time.sleep(1)
 
 
 
