@@ -118,12 +118,12 @@ def capture_frame():
 
             send_frame_queue.put(frame)
 
-        #TODO: final out
-        cv2.imshow("Capture", frame)
-        key = cv2.waitKey(1) & 0xFF
-        if key == ord('q'):
-
-            break
+        # #TODO: final out
+        # cv2.imshow("Capture", frame)
+        # key = cv2.waitKey(1) & 0xFF
+        # if key == ord('q'):
+        #
+        #     break
 
         if not running:
 
@@ -167,9 +167,9 @@ def detect_fire():
         flames = fire_cascade.detectMultiScale(gray, scaleFactor=1.3, minNeighbors=5)
         for (x, y, w, h) in flames:
 
-            # TODO: final out
-            cv2.rectangle(dframe, (x, y), (x + w, y + h), (255, 0, 0), 2)
-            print("fire detected")
+            # # TODO: final out
+            # cv2.rectangle(dframe, (x, y), (x + w, y + h), (255, 0, 0), 2)
+            # print("fire detected")
 
             global fire_notified, fire_time
 
@@ -185,12 +185,12 @@ def detect_fire():
                 fire_time = time.time()
                 fire_notified = True
 
-        # TODO: final out
-        cv2.imshow("Detect", dframe)
-        key = cv2.waitKey(1) & 0xFF
-        if key == ord('q'):
-            detecting = False
-            break
+        # # TODO: final out
+        # cv2.imshow("Detect", dframe)
+        # key = cv2.waitKey(1) & 0xFF
+        # if key == ord('q'):
+        #     detecting = False
+        #     break
 
 
 def read_temp():
