@@ -60,10 +60,9 @@ def receive_data():
                 print("null")
                 break
 
-            print(data)
             data_queue.put(data)
+
         except Exception as e:
-            print(e)
             break
 
 
