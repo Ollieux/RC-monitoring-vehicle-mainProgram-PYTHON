@@ -36,6 +36,8 @@ def send_notification(factor, _):
         token=registration_token,
     )
 
+    messaging.send(msg)
+
 
 def send_controls():
 
@@ -199,6 +201,17 @@ def read_temp():
             read = sensor.get_temperature()
             temp_queue.put(read)
             time.sleep(1)
+
+    # while True:
+    #
+    #     while not connected:
+    #         pass
+    #
+    #     read = sensor.get_temperature()
+    #     temp_queue.put(read)
+    #     time.sleep(1)
+
+
 
         # time.sleep(1)
 
