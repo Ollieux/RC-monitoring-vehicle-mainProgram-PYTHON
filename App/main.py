@@ -72,6 +72,8 @@ def send_frame():
     global gtemperature
     temp = gtemperature
 
+    threading.Thread(target=read_temp, ).start()
+
     while True:
 
         sframe = send_frame_queue.get()
@@ -194,13 +196,13 @@ def detect_fire():
 
 def read_temp():
 
-    # while True:
-    #
-    #     while connected:
-    #
-    #         read = sensor.get_temperature()
-    #         temp_queue.put(read)
-    #         time.sleep(1)
+    while connected:
+        read = sensor.get_temperature()
+        temp_queue.put(read)
+        time.sleep(1)
+
+
+def _read_temp():
 
     while True:
 
@@ -211,9 +213,6 @@ def read_temp():
         temp_queue.put(read)
         time.sleep(1)
 
-
-
-        # time.sleep(1)
 
 
 def button_callback(channel):
@@ -287,8 +286,8 @@ controls_thread.start()
 smoke_thread = threading.Thread(target=detect_smoke, )
 smoke_thread.start()
 
-temp_thread = threading.Thread(target=read_temp, )
-temp_thread.start()
+# temp_thread = threading.Thread(target=read_temp, )
+# temp_thread.start()
 
 while True:
     try:
