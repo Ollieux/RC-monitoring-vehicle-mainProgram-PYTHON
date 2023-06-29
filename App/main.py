@@ -231,7 +231,7 @@ def read_temp():
 def button_callback(channel):
     print("Button was pushed!")
     GPIO.cleanup();
-    os.system("sudo reboot")
+    os.system("sudo shutdown -h now")
 
 GPIO.setwarnings(False)
 # GPIO.setmode(GPIO.BCM)  # BCM numbering, not BOARD
