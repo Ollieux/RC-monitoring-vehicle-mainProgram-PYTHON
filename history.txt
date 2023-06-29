@@ -1,0 +1,1000 @@
+    3  06/02/23 22:03:24 sudo motion
+    4  06/02/23 22:04:32 sudo motion stop
+    5  06/02/23 22:08:49 sudo reboot
+    6  06/02/23 22:19:08 sudo service motion restart
+    7  06/02/23 22:19:14 sudo service motion start
+    8  06/02/23 22:20:33 sudo nano /etc/default/motion
+    9  06/02/23 22:21:06 sudo service motion restart
+   10  06/02/23 22:21:09 sudo service motion start
+   11  06/02/23 22:30:23 sudo systemctl start motion
+   12  06/02/23 22:31:11 sudo systemctl stop motion
+   13  06/02/23 22:31:24 sudo reboot
+   14  06/02/23 22:11:29 conky
+   15  06/02/23 22:34:55 sudo systemctl start motion
+   16  06/02/23 22:35:08 systemctl start motion
+   17  06/02/23 22:35:35 sudo systemctl stop motion
+   18  06/02/23 22:35:48 sudo systemctl restart motion
+   19  06/02/23 22:35:55 motion start
+   20  06/02/23 22:36:04 sudo motion stop
+   21  06/02/23 22:36:58 sudo nano /etc/motion/motion.conf 
+   22  06/02/23 22:54:17 sudo systemctl restart motion
+   23  06/02/23 22:54:39 sudo systemctl stop  motion
+   24  06/02/23 22:54:52 ls /etc/default/
+   25  06/02/23 22:55:19 cat /etc/default/ssh 
+   26  06/02/23 22:55:40 cat /etc/default/motion 
+   27  06/02/23 22:56:10 sudo reboot
+   28  06/02/23 23:00:01 sudo killall conky
+   29  06/02/23 23:00:14 sudo systemctl start motion
+   30  06/02/23 23:00:27 sudo motion 
+   31  06/02/23 23:03:03 sudo systemctl stop motion.service
+   32  06/02/23 23:05:02 sudo systemctl restart motion.service
+   33  06/02/23 23:05:15 sudo reboot
+   34  06/02/23 22:58:47 conky
+   35  06/02/23 23:13:58 sudo rm /var/lib/motion/*
+   36  06/02/23 23:14:31 sudo systemctl start motion.service 
+   37  06/02/23 23:14:58 sudo motion
+   38  06/02/23 23:16:26 sudo nano /etc/motion/motion.conf 
+   39  06/02/23 23:20:33 sudo reboot
+   40  06/02/23 23:23:57 sudo systemctl start motion.service
+   41  06/02/23 23:24:07 sudo motion
+   42  07/02/23 00:08:10 sudo reboot
+   43  06/02/23 23:23:22 conky
+   44  06/02/23 23:31:33 history
+   45  06/02/23 23:37:11 ./git.sh 
+   46  06/02/23 23:37:25 source project/env/bin/activate
+   47  06/02/23 23:37:38 python Rpi-Repo/Webcam/webcam_fps.py 
+   48  06/02/23 23:44:16 ./git.sh 
+   49  06/02/23 23:47:41 python Rpi-Repo/Webcam/webcam_fps.py 
+   50  07/02/23 13:12:55 conky
+   51  07/02/23 12:56:20 sudo motion
+   52  07/02/23 16:07:58 sudo nano /etc/motion/motion.conf 
+   53  07/02/23 19:28:25 source project/env/bin/activate
+   54  07/02/23 19:28:39 python Rpi-Repo/Webcam/webcam_fps.py 
+   55  07/02/23 19:49:51 deactivate 
+   56  07/02/23 19:49:55 sudo reboot
+   57  07/02/23 19:53:52 conky
+   58  08/02/23 00:50:02 sudo reboot
+   59  07/02/23 19:54:13 sudo motion
+   60  08/02/23 00:53:10 conky
+   61  08/02/23 01:02:44 sudo reboot
+   62  08/02/23 14:00:23 conky
+   63  08/02/23 14:03:16 source project/env/bin/activate
+   64  08/02/23 14:15:01 python Rpi-Repo/motorApp75.py 
+   65  08/02/23 14:16:24 deactivate 
+   66  08/02/23 14:17:59 python Rpi-Repo/motorApp75.py 
+   67  08/02/23 14:20:58 history
+   68  08/02/23 14:27:48 python Rpi-Repo/motorApp75.py 
+   69  09/02/23 01:09:01 sudo shutdown -h now
+   70  09/02/23 10:10:01 conky
+   71  09/02/23 10:11:01 sudo motion
+   72  09/02/23 10:11:36 source project/env/bin/activate
+   73  09/02/23 10:11:53 python Rpi-Repo/Webcam/webcam_fps.py 
+   74  09/02/23 10:15:08 sudo reboot
+   75  09/02/23 10:13:34 conky
+   76  09/02/23 11:23:38 ./git
+   77  09/02/23 11:23:45 ./git.sh
+   78  09/02/23 10:17:55 source project/env/bin/activate
+   79  09/02/23 10:18:13 python Rpi-Repo/Webcam/webcam_fps.py 
+   80  09/02/23 11:41:55 python Rpi-Repo/Webcam/webcam_fps.py 
+   81  09/02/23 11:45:57 cat Rpi-Repo/Fire/fire_detection_class.py
+   82  09/02/23 11:47:42 python Rpi-Repo/Fire/fire_detection_class.py
+   83  09/02/23 11:57:41 python Rpi-Repo/Webcam/webcam_fps.py 
+   84  09/02/23 11:59:53 ./git.sh 
+   85  09/02/23 12:00:01 python Rpi-Repo/Fire/fire_detection_class.py
+   86  09/02/23 12:01:16 ./git.sh 
+   87  09/02/23 12:01:22 python Rpi-Repo/Fire/fire_detection_class.py
+   88  09/02/23 12:04:39 ./git.sh 
+   89  09/02/23 12:04:52 python Rpi-Repo/Fire/fire_detection_class.py
+   90  09/02/23 12:08:26 ./git.sh 
+   91  09/02/23 12:08:35 cat Rpi-Repo/Fire/fire_detection_class.py
+   92  09/02/23 12:08:50 python Rpi-Repo/Fire/fire_detection_class.py
+   93  09/02/23 12:11:32 ./git.sh 
+   94  09/02/23 12:11:38 cat Rpi-Repo/Fire/fire_detection_class.py
+   95  09/02/23 12:12:07 cd ~/Rpi-Repo/Fire/fire_detection.xml
+   96  09/02/23 12:12:16 cd ~/Rpi-Repo/Fire/
+   97  09/02/23 12:12:28 cd ~
+   98  09/02/23 12:13:52 python Rpi-Repo/Fire/fire_detection_class.py
+   99  09/02/23 12:20:49 ./git.sh 
+  100  09/02/23 12:21:03 cat Rpi-Repo/Fire/fire_detection_class.py
+  101  09/02/23 12:21:23 python Rpi-Repo/Fire/fire_detection_class.py
+  102  09/02/23 12:23:24 ./git.sh
+  103  09/02/23 12:23:38 python Rpi-Repo/Fire/fire_detection_class.py
+  104  09/02/23 12:24:53 python
+  105  09/02/23 12:42:43 ./git.sh
+  106  09/02/23 12:43:03 python Rpi-Repo/Fire/fire_detection_class.py 
+  107  09/02/23 12:44:02 python Rpi-Repo/Webcam/webcam_fps.py 
+  108  09/02/23 12:54:26 ./git.sh
+  109  09/02/23 12:55:00 cat Rpi-Repo/Fire/fire_detection_class.py 
+  110  09/02/23 13:02:36 deactivate 
+  111  09/02/23 12:24:40 python
+  112  09/02/23 12:26:46 ls /home/rpi/project/env/lib/python3.9/site-packages/cv2/data/
+  113  09/02/23 12:52:13 history
+  114  09/02/23 13:03:11 ./git.sh 
+  115  09/02/23 13:03:27 source project/env/bin/activate
+  116  09/02/23 13:04:03  
+  117  09/02/23 13:05:11 cat Rpi-Repo/Fire/fire_detection.xml
+  118  09/02/23 13:14:20 python Rpi-Repo/Fire/fire_detection_class.py 
+  119  09/02/23 13:13:44 ./git.sh 
+  120  09/02/23 13:20:44 source project/env/bin/activate
+  121  09/02/23 13:20:49 python Rpi-Repo/Fire/fire_detection_class.py 
+  122  09/02/23 13:22:41 deactivate 
+  123  09/02/23 13:22:49 ./git.sh 
+  124  09/02/23 13:22:54 source project/env/bin/activate
+  125  09/02/23 13:22:57 python Rpi-Repo/Fire/fire_detection_class.py 
+  126  09/02/23 13:34:19 deactivate 
+  127  09/02/23 10:18:44 sudo motion
+  128  09/02/23 13:34:26 ./git.sh 
+  129  09/02/23 13:34:35 source project/env/bin/activate
+  130  09/02/23 13:34:41 python Rpi-Repo/Fire/fire_detection_class.py 
+  131  09/02/23 13:34:51 deactivate 
+  132  09/02/23 13:36:05 sudo update && sudo upgrade -y && sudo shutdown -h
+  133  09/02/23 13:36:26 sudo apt-get update && sudo apt-get upgrade -y && sudo shutdown -h
+  134  09/02/23 15:48:15 sudo motion
+  135  09/02/23 16:17:18 sudo reboot
+  136  09/02/23 15:47:34 source project/env/bin/activate
+  137  09/02/23 15:47:51 python Rpi-Repo/Webcam/webcam_fps.py 
+  138  09/02/23 15:48:50 conky
+  139  09/02/23 16:30:38 sudo reboot
+  140  09/02/23 16:22:25 sudo motion
+  141  09/02/23 20:08:47 source project/env/bin/activate
+  142  09/02/23 20:08:57 python Rpi-Repo/Webcam/webcam_fps.py 
+  143  09/02/23 20:39:51 deactivate 
+  144  09/02/23 19:41:47 conky
+  145  09/02/23 20:44:07 history
+  146  09/02/23 20:45:06 python Rpi-Repo/motorApp75.py 
+  147  09/02/23 20:53:07 ./git.sh 
+  148  09/02/23 20:53:34 python Rpi-Repo/motorApp75.py 
+  149  09/02/23 21:22:31 source project/env/bin/activate
+  150  09/02/23 21:22:43 python Rpi-Repo/Fire/fire_detection_class.py 
+  151  09/02/23 21:23:16 cat Rpi-Repo/Fire/fire_detection_class.py 
+  152  10/02/23 01:32:50 deactivate 
+  153  10/02/23 01:33:00 sudo shutdown -h now
+  154  10/02/23 08:11:10 source project/env/bin/activate
+  155  10/02/23 08:11:13 python
+  156  10/02/23 08:13:21 deactivate 
+  157  10/02/23 08:28:04 source project/env/bin/activate
+  158  10/02/23 08:28:19 python Rpi-Repo/Fire/fire_detection_class.py 
+  159  10/02/23 08:36:06 python Rpi-Repo/Webcam/webcam_fps.py 
+  160  10/02/23 08:37:36 deactivate 
+  161  10/02/23 08:37:42 sudo shutdown -h now
+  162  10/02/23 08:27:54 ./git.sh 
+  163  10/02/23 08:25:13 sudo motion
+  164  10/02/23 08:18:25 sudo nano /etc/network/interfaces
+  165  10/02/23 08:21:05 sudo nano /etc/wpa_supplicant/wpa_supplicant.conf 
+  166  10/02/23 08:31:45 conky
+  167  10/02/23 08:39:58 conky 
+  168  10/02/23 10:33:13 conky
+  169  10/02/23 10:28:28 sudo nano Rpi-Repo/Webcam/webcam_fps.py 
+  170  10/02/23 10:30:47 sudo nano Rpi-Repo/Fire/fire_detection_class.py 
+  171  10/02/23 10:31:29 sudo nano Rpi-Repo/motorApp75.py 
+  172  10/02/23 10:27:29 source project/env/bin/activate
+  173  10/02/23 10:27:45 python Rpi-Repo/Webcam/webcam_fps.py 
+  174  10/02/23 10:33:34 python Rpi-Repo/Fire/fire_detection_class.py 
+  175  10/02/23 10:34:19 python Rpi-Repo/Fire/fire_detection_class.py
+  176  10/02/23 10:36:41 source project/env/bin/activate
+  177  10/02/23 10:37:01 python Rpi-Repo/Webcam/webcam_fps.py 
+  178  10/02/23 10:25:17 sudo nano Rpi-Repo/Webcam/webcam_fps.py 
+  179  10/02/23 10:26:27 sudo motion
+  180  10/02/23 10:41:12 sudo reboot
+  181  10/02/23 10:43:38 conky
+  182  10/02/23 10:43:47 sudo motion
+  183  10/02/23 10:55:14 cat /etc/motion/motion.conf 
+  184  10/02/23 10:44:10 source project/env/bin/activate
+  185  10/02/23 10:44:32 python Rpi-Repo/Fire/fire_detection_class.py 
+  186  10/02/23 10:45:33 source project/env/bin/activate
+  187  10/02/23 10:45:55 python Rpi-Repo/Webcam/webcam_fps.py 
+  188  10/02/23 10:47:35 ls Rpi-Repo/
+  189  10/02/23 10:49:01 cd Rpi-Repo/
+  190  10/02/23 10:49:06 cd Webcam/
+  191  10/02/23 10:49:08 ls
+  192  10/02/23 10:49:18 cat webcam.py
+  193  10/02/23 10:51:18 cd ..
+  194  10/02/23 10:51:22 cd Fire/
+  195  10/02/23 10:51:37 cat fire_detection_class.py 
+  196  10/02/23 22:50:30 git shutdown -h now
+  197  10/02/23 22:50:37 shutdown -h now
+  198  10/02/23 22:46:13 cd Rpi-Repo/
+  199  10/02/23 22:46:18 git status
+  200  10/02/23 22:46:52 git checkout -b Hotspot
+  201  10/02/23 22:47:04 git add .
+  202  10/02/23 22:47:22 git commit -m "hotspot ip address"
+  203  10/02/23 22:47:36 git checkout main
+  204  10/02/23 22:47:43 git branch -a
+  205  10/02/23 23:12:52 nano /etc/motion/motion.conf 
+  206  10/02/23 23:14:28 sudo nano /etc/motion/motion.conf 
+  207  10/02/23 23:15:07 lsusb
+  208  10/02/23 23:18:18 sudo nano /etc/motion/motion.conf 
+  209  10/02/23 23:20:06 sudo nano /etc/motion/camera1-dist.conf 
+  210  10/02/23 23:20:50 sudo nano /etc/motion/camera2-dist.conf 
+  211  10/02/23 23:21:21 sudo nano /etc/motion/camera3-dist.conf 
+  212  10/02/23 23:24:08 source project/env/bin/activate
+  213  10/02/23 23:24:29 python Rpi-Repo/Webcam/webcam_fps.py 
+  214  10/02/23 23:25:13 python Rpi-Repo/Fire/fire_detection_class.py 
+  215  10/02/23 23:36:14 deactivate 
+  216  10/02/23 23:36:19 sudo shutdown -h now
+  217  10/02/23 23:11:02 sudo motion
+  218  10/02/23 23:10:47 conky
+  219  11/02/23 17:13:25 cd Rpi-Repo/
+  220  11/02/23 17:13:31 git status
+  221  11/02/23 17:13:42 ../git.sh
+  222  12/02/23 00:12:13 git branch 
+  223  12/02/23 00:12:18 ../git.sh 
+  224  12/02/23 00:12:32 pip3 install serial
+  225  12/02/23 00:17:05 python arduino.py 
+  226  12/02/23 00:22:25 ../git.sh 
+  227  12/02/23 00:23:45 python arduino.py 
+  228  11/02/23 22:52:17 ./Rpi-Repo/temp.sh 
+  229  11/02/23 22:52:28 ./Rpi-Repo/temp.sh 5
+  230  11/02/23 13:36:43 python Rpi-Repo/motorApp75.py 
+  231  11/02/23 13:37:18 cd Rpi-Repo
+  232  11/02/23 13:37:21 git branch
+  233  11/02/23 14:16:07 cd ..
+  234  11/02/23 14:16:10 python Rpi-Repo/motorApp75.py 
+  235  11/02/23 14:16:44 cat Rpi-Repo/motorApp75.py 
+  236  11/02/23 14:18:20 python Rpi-Repo/motorApp75.py 
+  237  12/02/23 00:13:12 history
+  238  12/02/23 00:15:15 history | grep install
+  239  12/02/23 00:25:55 pip install pyserial
+  240  12/02/23 00:26:28 python Rpi-Repo/arduino.py 
+  241  12/02/23 00:32:05 pip uninstall pyserial
+  242  12/02/23 00:32:45 pip uninstall serial
+  243  12/02/23 00:33:22 pip install pyserial
+  244  12/02/23 00:33:54 pip3 uninstall pyserial
+  245  12/02/23 00:34:24 python Rpi-Repo/arduino.py 
+  246  12/02/23 00:36:42 ls -l  /dev/tty*
+  247  12/02/23 00:39:42 ./git.sh 
+  248  12/02/23 00:39:51 python Rpi-Repo/arduino.py 
+  249  11/02/23 13:35:36 sudo motion
+  250  11/02/23 14:56:16 source project/env/bin/activate
+  251  11/02/23 14:56:39 python Rpi-Repo/Fire/fire_detection_class.py 
+  252  11/02/23 22:48:25 python Rpi-Repo/Fire/fire_detection
+  253  11/02/23 22:48:31 python Rpi-Repo/Fire/fire_detection_class.py 
+  254  12/02/23 00:59:14 dea
+  255  12/02/23 00:59:19 deactivate 
+  256  12/02/23 00:59:30 killall motion 
+  257  12/02/23 00:59:44 sudo killall motion
+  258  12/02/23 00:59:56 sudo killall conky
+  259  12/02/23 01:00:09 ps -aux
+  260  12/02/23 01:01:35 sudo update && sudo upgrade -y && sudo shutdown -h now
+  261  12/02/23 01:01:55 sudo apt-get update && sudo apt-get upgrade -y && sudo shutdown -h now
+  262  12/02/23 22:24:54 conky
+  263  12/02/23 22:25:56 ./git.sh 
+  264  13/02/23 02:04:17 history
+  265  13/02/23 02:04:52 sudo apt-get update && sudo apt-get upgrade -y && sudo shutdown -h now
+  266  12/02/23 22:25:13 source project/env/bin/activate
+  267  12/02/23 22:26:11 python Rpi-Repo/android_stream.py 
+  268  13/02/23 11:05:16 sudo shutdown -h now
+  269  13/02/23 10:45:28 conky
+  270  13/02/23 12:39:08 sudo nano /etc/motion/motion.conf 
+  271  13/02/23 12:43:05 sudo motion
+  272  13/02/23 12:44:45 sudo killall motion 
+  273  13/02/23 12:44:50 sudo motion
+  274  13/02/23 12:57:37 sudo killall motion 
+  275  13/02/23 13:24:50 sudo motion
+  276  13/02/23 13:39:36 sudo killall motion 
+  277  13/02/23 13:57:16 sudo motion
+  278  13/02/23 13:57:31 sudo killall motion 
+  279  13/02/23 13:58:08 sudo motion
+  280  13/02/23 13:59:48 sudo killall motion 
+  281  13/02/23 14:00:13 sudo reboot
+  282  13/02/23 12:54:17 ./git.sh 
+  283  13/02/23 12:58:49 source project/env/bin/activate
+  284  13/02/23 13:05:13 python Rpi-Repo/andorid_stream_gpt.py
+  285  13/02/23 13:48:23 python Rpi-Repo/android_stream_gpt.py
+  286  13/02/23 13:53:49 python Rpi-Repo/android_stream_gpt2.py
+  287  13/02/23 14:59:52 source project/env/bin/activate
+  288  13/02/23 15:00:05 python Rpi-Repo/android_stream_gpt3.py 
+  289  13/02/23 15:00:35 python Rpi-Repo/Webcam/webcam_fps.py 
+  290  13/02/23 15:03:10 python Rpi-Repo/android_stream_gpt3.py 
+  291  13/02/23 15:25:48 cat Rpi-Repo/android_stream_gpt3.py 
+  292  13/02/23 15:33:34 python Rpi-Repo/android_stream_gpt3.py 
+  293  13/02/23 20:18:28 python Rpi-Repo/Webcam/webcam_fps.py 
+  294  13/02/23 20:24:52 sudo shutdown -h now
+  295  13/02/23 14:28:58 history
+  296  13/02/23 14:29:13 conky
+  297  13/02/23 14:59:36 ./git.sh 
+  298  13/02/23 15:21:29 mv git.sh Rpi-Repo/
+  299  13/02/23 15:21:32 cd Rpi-Repo
+  300  13/02/23 15:21:36 git log
+  301  13/02/23 15:22:09 git status
+  302  13/02/23 15:22:13 git add .
+  303  13/02/23 15:22:41 git branch
+  304  13/02/23 15:22:54 git commit -m "add file git.sh rpi"
+  305  13/02/23 15:22:59 git push origin main
+  306  13/02/23 15:25:03 ./git.sh 
+  307  13/02/23 20:19:55 sudo motion
+  308  13/02/23 20:23:05 sudo killall motion
+  309  13/02/23 20:24:30 ./temp.sh 5
+  310  14/02/23 10:09:51 conky
+  311  14/02/23 13:04:55 history
+  312  14/02/23 15:18:46 source project/env/bin/activate
+  313  14/02/23 15:20:30 python Rpi-Repo/Fire/fire_detection_class.py 
+  314  14/02/23 15:40:44 deactivate 
+  315  14/02/23 15:41:01 sudo shutdown -h 1
+  316  14/02/23 15:41:52 shutdown -c
+  317  14/02/23 15:42:07 sudo shutdown -c
+  318  14/02/23 15:54:22 sudo shutdown -h 1
+  319  14/02/23 10:10:41 cd Rpi-Repo/
+  320  14/02/23 10:10:50 ./temp.sh 5
+  321  14/02/23 13:06:23 ./git.sh 
+  322  14/02/23 13:06:39 history
+  323  14/02/23 15:18:23 ./git.sh 
+  324  14/02/23 15:26:01 vcgencmd get_throttled
+  325  14/02/23 15:33:52 ./git.sh 
+  326  14/02/23 15:42:35 ls
+  327  14/02/23 15:43:44 python arduino.py 
+  328  14/02/23 15:47:00 ls 
+  329  14/02/23 15:47:32 python motorApp75.py 
+  330  14/02/23 18:55:46 conky
+  331  14/02/23 23:10:55 history
+  332  14/02/23 18:55:59 cd Rpi-Repo/
+  333  14/02/23 18:57:34 ./temp.sh 5
+  334  14/02/23 18:59:42 python arduino.py 
+  335  15/02/23 01:46:10 sudo shutdown -h now
+  336  15/02/23 10:46:54 conky
+  337  15/02/23 10:48:24 source project/env/bin/activate
+  338  15/02/23 10:48:45 python Rpi-Repo/Fire/fire_detection_class.py 
+  339  15/02/23 12:04:58 deactivate 
+  340  15/02/23 12:05:14 shutdown -h now
+  341  15/02/23 10:47:23 cd Rpi-Repo/
+  342  15/02/23 10:47:29 ./git.sh 
+  343  15/02/23 10:47:52 cat Fire/fire_detection_
+  344  15/02/23 10:47:56 cat Fire/fire_detection_class.py 
+  345  15/02/23 11:03:53 ./git.sh 
+  346  15/02/23 12:08:29 conky
+  347  15/02/23 12:08:54 cd Rpi-Repo/
+  348  15/02/23 12:10:18 cat Fire/fire_detection_class.py 
+  349  15/02/23 12:10:45 ./git.sh 
+  350  15/02/23 12:42:53 cat Fire/fire_detection_class.py 
+  351  15/02/23 12:09:16 source project/env/bin/activate
+  352  15/02/23 12:11:06 python Rpi-Repo/Fire/fire_detection<
+  353  15/02/23 12:11:16 python Rpi-Repo/Fire/fire_detection_class.py 
+  354  15/02/23 12:47:13 deactivate 
+  355  15/02/23 12:47:16 sudo reboot
+  356  15/02/23 12:48:22 conky
+  357  15/02/23 12:48:39 cd Rpi-Repo/
+  358  15/02/23 12:49:07 ./git.sh 
+  359  15/02/23 12:48:57 source project/env/bin/activate
+  360  15/02/23 12:49:18 python Rpi-Repo/Fire/fire_detection_class.py 
+  361  15/02/23 13:25:58 deactivate 
+  362  15/02/23 13:26:02 sudo reboot
+  363  15/02/23 13:27:37 conky
+  364  15/02/23 13:27:53 source project/env/bin/activate
+  365  15/02/23 13:27:58 python Rpi-Repo/Fire/fire_detection_class.py 
+  366  15/02/23 13:29:19 deactivate 
+  367  15/02/23 13:29:27 sudo shutdown -h now
+  368  15/02/23 13:27:46 cd Rpi-Repo/
+  369  15/02/23 16:20:47 python Rpi-Repo/arduino.py 
+  370  15/02/23 16:31:18 python Rpi-Repo/mq135.py 
+  371  15/02/23 16:34:12 python Rpi-Repo/arduino.py 
+  372  16/02/23 00:24:57 python -u Rpi-Repo/arduino.py | tee calibration.txt 
+  373  16/02/23 00:58:53 python Rpi-Repo/arduino.py 
+  374  16/02/23 01:29:09 shutdown -h now
+  375  15/02/23 19:26:18 conky
+  376  15/02/23 19:40:34 cat mq135.py 
+  377  16/02/23 01:08:17 pyhon q135.py 
+  378  16/02/23 01:08:42 python mq135.py 
+  379  16/02/23 01:30:35 ls
+  380  16/02/23 01:30:44 shutdown -h now
+  381  17/02/23 02:50:05 conky
+  382  17/02/23 02:50:57 sudo apt-get update && sudo apt-get upgrade -y && sudo shutdown -h now
+  383  17/02/23 09:24:31 cd Rpi-Repo
+  384  17/02/23 09:24:40 ./git.sh 
+  385  17/02/23 09:24:48 git branch
+  386  17/02/23 09:25:01 git checkout Hotspot 
+  387  17/02/23 09:25:04 ls
+  388  17/02/23 09:25:58 cd Webcam/
+  389  17/02/23 09:26:04 cat webcam_fps.py 
+  390  17/02/23 09:27:20 git checkout main 
+  391  17/02/23 10:03:53 shutdown -h now
+  392  17/02/23 14:25:00 sudo shutdown -h now
+  393  26/02/23 11:42:12 source env
+  394  26/02/23 11:42:24 source project/env/bin/activate
+  395  26/02/23 11:43:02 python Rpi-Repo/main2.py 
+  396  26/02/23 11:45:27 pip install pyserial
+  397  26/02/23 11:46:10 python Rpi-Repo/main2.py 
+  398  26/02/23 11:46:41 pip install firebase_admin
+  399  26/02/23 11:51:17 python Rpi-Repo/main2.py 
+  400  26/02/23 12:58:10 deactivate 
+  401  26/02/23 12:58:15 exit
+  402  26/02/23 12:59:27 history
+  403  26/02/23 12:59:46 exit
+  404  26/02/23 13:00:19 history
+  405  26/02/23 13:00:41 exit
+  406  26/02/23 11:11:22 cd Rpi-Repo
+  407  26/02/23 11:11:46 git log
+  408  26/02/23 11:13:55 git checkout Hotspot 
+  409  26/02/23 11:13:59 git log
+  410  26/02/23 11:14:34 git checkout main
+  411  26/02/23 11:15:01 ./git.sh 
+  412  26/02/23 11:42:05 git branch
+  413  26/02/23 11:53:09 ./git.sh 
+  414  26/02/23 11:55:02 ls
+  415  26/02/23 11:55:31 cd Notification/
+  416  26/02/23 11:55:32 ls
+  417  26/02/23 11:55:55 cat pushnotifcationtest-f5539-firebase-adminsdk-2ssjk-6ca36caa53.json 
+  418  26/02/23 12:00:17 pwd
+  419  26/02/23 12:01:38 cd ..
+  420  26/02/23 12:01:46 ./git.sh 
+  421  26/02/23 13:00:10 sudo apt-get update && sudo apt-get upgrade -y && sudo shutdown -h now
+  422  26/02/23 11:10:43 conky
+  423  28/02/23 13:43:04 history
+  424  28/02/23 14:06:44 python Rpi-Repo/arduino.py 
+  425  28/02/23 22:53:52 python -u Rpi-Repo/arduino.py | tee Rpi-Repo/mq2.txt 
+  426  28/02/23 23:12:23 python Rpi-Repo/arduino.py 
+  427  28/02/23 23:17:23 python -u Rpi-Repo/arduino.py | tee Rpi-Repo/mq2_2.txt 
+  428  28/02/23 23:25:23 python Rpi-Repo/arduino.py 
+  429  28/02/23 13:41:54 cd Rpi-Repo
+  430  28/02/23 13:42:04 git status
+  431  28/02/23 13:42:23 git log
+  432  28/02/23 14:05:58 ./git.sh 
+  433  28/02/23 14:08:12 ls *.txt
+  434  28/02/23 14:08:23 ls -l *.txt
+  435  28/02/23 14:08:35 cat out.txt 
+  436  28/02/23 14:08:44 cat output.txt 
+  437  28/02/23 14:08:51 cat output1.txt 
+  438  28/02/23 14:09:05 cat mq135.txt 
+  439  28/02/23 14:09:17 cat mq135_output.txt.txt 
+  440  28/02/23 14:09:22 cat mq135_output.txt
+  441  28/02/23 14:09:51 cd ..
+  442  28/02/23 14:10:03 ls -l *.txt
+  443  28/02/23 14:10:16 cat output2.txt 
+  444  28/02/23 14:10:37 cat output1.txt 
+  445  28/02/23 14:10:52 ls -l *.txt
+  446  28/02/23 14:11:07 cat calibration.txt.txt 
+  447  28/02/23 14:11:09 cat calibration.txt
+  448  28/02/23 14:12:01 history
+  449  28/02/23 14:14:18 cd Rpi-Repo
+  450  28/02/23 14:14:35 ls #.md
+  451  28/02/23 14:14:51 sudo nano README.md 
+  452  28/02/23 14:16:24 git status
+  453  28/02/23 14:16:32 git add README.md 
+  454  28/02/23 14:16:34 git status
+  455  28/02/23 14:16:45 git commit -m "add reading from python to file command rpi"
+  456  28/02/23 14:16:49 git status
+  457  28/02/23 14:17:05 git push origin main
+  458  28/02/23 14:17:16 history
+  459  28/02/23 14:17:40 history | push
+  460  28/02/23 14:17:51 history | grep push
+  461  28/02/23 22:20:17 cat mq135.py 
+  462  28/02/23 22:53:39 cat README.md 
+  463  28/02/23 23:17:47 ls *.txt
+  464  28/02/23 23:18:06 cat mq2.txt 
+  465  28/02/23 23:25:36 git status
+  466  28/02/23 23:26:02 git add mq2.txt
+  467  28/02/23 23:26:35 git commit -m "add file mq2.txt rpi"
+  468  28/02/23 23:33:55 git push origin main
+  469  28/02/23 21:52:40 cd Rpi-Repo
+  470  28/02/23 21:52:50 cat mq135.py 
+  471  28/02/23 22:02:53 cd Webcam/
+  472  28/02/23 22:03:05 cat webcam.py 
+  473  28/02/23 22:03:16 cat webcam_fps.py 
+  474  28/02/23 22:09:17 cd ..
+  475  28/02/23 22:09:42 python mq135.py 
+  476  28/02/23 23:40:24 sudo shutdown -h now
+  477  28/02/23 23:42:00 conky
+  478  28/02/23 23:43:05 python Rpi-Repo/mq135.py 
+  479  28/02/23 23:42:54 python Rpi-Repo/arduino.py 
+  480  28/02/23 23:53:17 sudo shutdown -h now
+  481  28/02/23 23:55:14 python Rpi-Repo/arduino.py 
+  482  28/02/23 23:56:37 sudo shutdown -h now
+  483  28/02/23 23:54:44 conky
+  484  28/02/23 23:55:11 python Rpi-Repo/mq135.py 
+  485  28/02/23 23:58:41 python Rpi-Repo/arduino.py 
+  486  01/03/23 00:01:26 sudo reboot
+  487  28/02/23 23:58:13 conky
+  488  28/02/23 23:58:38 python Rpi-Repo/mq135.py 
+  489  01/03/23 00:03:08 python Rpi-Repo/arduino.py 
+  490  01/03/23 00:04:25 sudo shutdown -h now
+  491  01/03/23 00:02:50 conky
+  492  01/03/23 00:03:06 python Rpi-Repo/mq135.py 
+  493  01/03/23 00:05:59 conky
+  494  01/03/23 00:06:36 source project/env/bin/activate
+  495  01/03/23 00:06:51 python Rpi-Repo/main2.py 
+  496  01/03/23 00:30:51 deactivate 
+  497  01/03/23 00:31:03 python Rpi-Repo/arduino.py 
+  498  01/03/23 00:31:51 sudo shutdown -h now
+  499  02/03/23 15:39:52 cd Rpi-Repo
+  500  02/03/23 15:40:03 git pull origin main
+  501  02/03/23 15:40:25 python os_manager.py 
+  502  02/03/23 15:39:43 conky
+  503  02/03/23 15:45:28 cd Rpi-Repo
+  504  02/03/23 15:45:31 ls
+  505  02/03/23 15:45:41 cat ds18b20.py 
+  506  02/03/23 15:51:22 python ds18b20.py 
+  507  02/03/23 15:56:13 sudo raspi-config 
+  508  02/03/23 15:58:00 python os_manager.py 
+  509  02/03/23 15:52:00 source project/env/bin/activate
+  510  02/03/23 15:52:29 pip install w1thermsensor
+  511  02/03/23 15:53:04 python Rpi-Repo/ds18b20.py 
+  512  02/03/23 16:10:07 source project/env/bin/activate
+  513  02/03/23 16:10:29 python Rpi-Repo/ds18b20.py 
+  514  02/03/23 16:10:52 deactivate 
+  515  02/03/23 16:08:56 cd Rpi-Repo
+  516  02/03/23 16:09:08 git pull origin main
+  517  02/03/23 16:09:23 git branch
+  518  02/03/23 16:11:21 python ds18b20.py 
+  519  02/03/23 16:11:35 pip3 install w1thermsensor
+  520  02/03/23 16:12:02 python ds18b20.py 
+  521  02/03/23 16:15:19 sudo shut -h now
+  522  02/03/23 16:15:31 sudo shutdown -h now
+  523  02/03/23 16:12:40 lsmod
+  524  02/03/23 16:26:26 python ds18b20.py 
+  525  02/03/23 16:26:33 cd Rpi-Repo
+  526  02/03/23 16:26:34 python ds18b20.py 
+  527  02/03/23 16:26:58 cat /boot/config.txt
+  528  02/03/23 16:41:07 sudo shutdown -h now
+  529  02/03/23 16:46:03 cd Rpi-Repo
+  530  02/03/23 16:46:10 python ds18b20.py 
+  531  02/03/23 16:46:19 lsmod
+  532  02/03/23 16:48:16 python ds18b20.py 
+  533  02/03/23 16:48:42 cat /boot/config.txt
+  534  02/03/23 16:49:43 sudo shutdown -h now
+  535  02/03/23 16:51:03 lsmod
+  536  02/03/23 16:51:14 python Rpi-Repo/ds18b20.py 
+  537  02/03/23 16:51:18 sudo shutdown -h now
+  538  02/03/23 16:53:52 lsmod
+  539  02/03/23 16:54:00 python Rpi-Repo/ds18b20.py 
+  540  02/03/23 16:54:27 sudo shutdown -h now
+  541  02/03/23 17:24:43 cd Rpi-Repo
+  542  02/03/23 17:24:58 python arduino.py 
+  543  02/03/23 17:30:27 sudo apt-get update && sudo apt-get upgrade -y && sudo shutdown -h now
+  544  02/03/23 16:56:58 lsmod
+  545  02/03/23 16:57:19 cat  Rpi-Repo/ds18b20.py 
+  546  02/03/23 16:57:32 python Rpi-Repo/ds18b20.py 
+  547  02/03/23 17:03:17 cd Rpi-Repo
+  548  02/03/23 17:03:36 sudo nano mq135.py 
+  549  02/03/23 17:10:07 ./git
+  550  02/03/23 17:10:16 ./git.sh 
+  551  02/03/23 17:11:52 python mq135.py 
+  552  02/03/23 17:14:36 ./git.sh 
+  553  02/03/23 17:14:40 python mq135.py 
+  554  02/03/23 17:32:29 cd Rpi-Repo
+  555  02/03/23 17:32:43 ./git.sh 
+  556  02/03/23 17:33:30 cat git.sh 
+  557  03/03/23 01:00:11 git branch
+  558  03/03/23 01:01:15 ./git.sh 
+  559  03/03/23 01:01:27 git checkout -b dev-rpi
+  560  03/03/23 01:01:36 git branch
+  561  03/03/23 01:02:14 git pull origin dev-rpi
+  562  03/03/23 01:03:15 git branch 
+  563  03/03/23 01:03:31 cat App/main.py 
+  564  03/03/23 01:04:19 git checkout main 
+  565  03/03/23 01:04:24 cat App/main.py 
+  566  03/03/23 01:05:10 git checkout dev-rpi
+  567  03/03/23 01:33:49 git pull origin dev-rpi
+  568  03/03/23 01:05:28 cat Rpi-Repo/App/main.py 
+  569  03/03/23 01:06:02 source project/env/bin/activate
+  570  03/03/23 01:06:20 python Rpi-Repo/App/main.py 
+  571  03/03/23 01:43:41 deactivate 
+  572  03/03/23 01:44:03 sudo shutdown -h now
+  573  03/03/23 01:37:58 conky
+  574  05/03/23 11:33:46 CONKY
+  575  05/03/23 11:33:50 conky
+  576  05/03/23 11:28:31 cd Rpi-Repo
+  577  05/03/23 11:28:37 git branch 
+  578  05/03/23 11:29:06 git pull origin dev-rpi 
+  579  05/03/23 11:31:23 history | grep GPIO
+  580  05/03/23 12:01:27 sudo shutdown -h now
+  581  05/03/23 11:31:37 history
+  582  05/03/23 11:32:04 history | grep GPIO
+  583  05/03/23 11:30:22 source project/env/bin/activate
+  584  05/03/23 11:30:27 cd Rpi-Repo
+  585  05/03/23 11:30:32 cd App/
+  586  05/03/23 11:30:39 python main.py 
+  587  05/03/23 11:32:47 pip install RPi
+  588  05/03/23 11:33:04 pip install RPi.GPIO
+  589  05/03/23 11:33:21 python main.py 
+  590  05/03/23 12:06:53 conky
+  591  05/03/23 12:07:11 sudo shutdown -h now
+  592  05/03/23 12:19:51 conky
+  593  05/03/23 12:22:56 cd Rpi-Repo
+  594  05/03/23 12:37:51 ls
+  595  05/03/23 12:38:01 python mq135.py 
+  596  05/03/23 12:55:59 git pull origin dev-rpi 
+  597  05/03/23 12:56:14 git branch 
+  598  05/03/23 12:56:27 sudo shutdown -h now
+  599  05/03/23 12:23:18 source project/env/bin/activate
+  600  05/03/23 12:23:30 python Rpi-Repo/App/main.py 
+  601  05/03/23 12:55:36 deactivate 
+  602  05/03/23 12:38:40 cd Rpi-Repo
+  603  05/03/23 12:38:44 python ds18b20.py 
+  604  05/03/23 12:40:49 ls dev/tty*
+  605  05/03/23 12:40:56 ls /dev/tty*
+  606  05/03/23 12:44:25 cd Rpi-Repo
+  607  05/03/23 12:44:34 python arduino.py 
+  608  05/03/23 12:59:12 cd Rpi-Repo
+  609  05/03/23 13:11:48 git branch 
+  610  05/03/23 13:11:58 git pull origin dev-rpi 
+  611  05/03/23 12:59:00 conky 
+  612  05/03/23 12:59:27 source project/env/bin/activate
+  613  05/03/23 12:59:36 python Rpi-Repo/App/main.py 
+  614  05/03/23 13:13:59 deactivate 
+  615  05/03/23 13:14:08 sdo shutdown -h now
+  616  05/03/23 13:14:13 sudo shutdown -h now
+  617  06/03/23 09:51:05 conky
+  618  06/03/23 09:51:16 cd Rpi-Repo
+  619  06/03/23 09:51:53 git pull origin dev-rpi 
+  620  06/03/23 10:09:12 sudo shutdown -h now
+  621  06/03/23 09:55:49 source project/env/bin/activate
+  622  06/03/23 09:56:04 python Rpi-Repo/App/main.py 
+  623  06/03/23 10:08:58 deactivate 
+  624  06/03/23 10:55:09 conky
+  625  06/03/23 10:55:36 source project/env/bin/activate
+  626  06/03/23 10:55:38 python Rpi-Repo/App/main.py 
+  627  06/03/23 10:55:19 cd Rpi-Repo
+  628  06/03/23 10:55:23 git pull origin dev-rpi 
+  629  06/03/23 11:34:24 sudo shutdown -h now
+  630  06/03/23 11:36:34 cd Rpi-Repo
+  631  06/03/23 11:36:38 cd ..
+  632  06/03/23 11:36:43 conky
+  633  06/03/23 11:37:06 git pull origin dev-rpi 
+  634  06/03/23 11:37:15 git branch 
+  635  06/03/23 11:43:45 git pull origin dev-rpi 
+  636  06/03/23 11:47:48 sudo shutdown -h now
+  637  06/03/23 11:37:24 source project/env/bin/activate
+  638  06/03/23 11:37:26 python Rpi-Repo/App/main.py 
+  639  06/03/23 11:47:41 deactivate 
+  640  06/03/23 11:57:40 sudo shutdown -h now
+  641  06/03/23 13:44:39 source project/env/bin/activate
+  642  06/03/23 13:44:48 python Rpi-Repo/App/main.py 
+  643  06/03/23 14:54:20 deactivate 
+  644  06/03/23 13:44:08 hostname
+  645  06/03/23 13:44:21 conky
+  646  06/03/23 13:44:28 cd Rpi-Repo
+  647  06/03/23 13:44:33 git pull origin dev-rpi 
+  648  06/03/23 14:54:27 sudo shutdown -h now
+  649  06/03/23 14:59:44 source project/env/bin/activate
+  650  06/03/23 15:00:38 python Rpi-Repo/App/main.py 
+  651  06/03/23 15:13:50 deactivate 
+  652  06/03/23 14:59:15 conky 
+  653  06/03/23 14:59:37 cd Rpi-Repo
+  654  06/03/23 15:13:55 sudo shutdown -h now
+  655  06/03/23 15:14:43 source project/env/bin/activate
+  656  06/03/23 15:14:50 python Rpi-Repo/App/main.py 
+  657  06/03/23 15:15:44 deactivate 
+  658  06/03/23 15:15:46 sudo shutdown -h now
+  659  06/03/23 15:16:30 source project/env/bin/activate
+  660  06/03/23 15:17:46 python Rpi-Repo/App/main.py 
+  661  06/03/23 18:26:54 sudo shutdown -h now
+  662  06/03/23 22:05:58 history | grep RPi.GPIO
+  663  06/03/23 21:54:12 history
+  664  06/03/23 21:58:03 cd Rpi-Repo
+  665  06/03/23 21:58:10 git pull origin dev-rpi 
+  666  06/03/23 21:58:23 python button.py 
+  667  06/03/23 21:59:16 git pull origin dev-rpi 
+  668  06/03/23 21:59:23 python button.py 
+  669  06/03/23 22:03:28 pip list
+  670  06/03/23 22:06:52 pip show RPi.GPIO
+  671  06/03/23 22:08:49 git pull origin dev-rpi 
+  672  06/03/23 22:09:01 python button.py 
+  673  06/03/23 22:10:34 history | pip
+  674  06/03/23 22:10:57 history | grep pip
+  675  06/03/23 22:12:08 python button.py 
+  676  06/03/23 22:13:14 sudo python button.py 
+  677  06/03/23 22:18:11 git pull origin dev-rpi 
+  678  06/03/23 22:18:19 python button.py 
+  679  06/03/23 22:22:02 git pull origin dev-rpi 
+  680  06/03/23 22:22:09 python button.py 
+  681  06/03/23 21:53:24 conky
+  682  06/03/23 22:00:00 source project/env/bin/activate
+  683  06/03/23 22:00:10 python Rpi-Repo/button.py 
+  684  06/03/23 22:00:17 history
+  685  06/03/23 22:04:09 pip list
+  686  06/03/23 22:27:34 python Rpi-Repo/button.py 
+  687  06/03/23 22:29:02 sudo shutdown -h now
+  688  06/03/23 22:43:41 source project/env/bin/activate
+  689  06/03/23 22:44:18 python Rpi-Repo/App/main.py 
+  690  06/03/23 23:12:39 deactivate 
+  691  06/03/23 22:43:09 conky
+  692  06/03/23 22:43:24 cd Rpi-Repo
+  693  06/03/23 23:00:55 git pull origin dev-rpi
+  694  06/03/23 23:12:49 sudo shutdown -h now
+  695  06/03/23 23:52:29 conky
+  696  06/03/23 23:52:56 source project/env/bin/activate
+  697  06/03/23 23:53:07 python Rpi-Repo/App/main.py 
+  698  06/03/23 23:52:39 cd Rpi-Repo
+  699  06/03/23 23:52:42 git pull origin dev-rpi
+  700  07/03/23 00:08:56 python button.py 
+  701  07/03/23 00:18:54 cd Rpi-Repo
+  702  07/03/23 00:22:40 git pull origin dev-rpi
+  703  07/03/23 00:18:45 conky
+  704  07/03/23 00:22:54 source project/env/bin/activate
+  705  07/03/23 00:23:05 python Rpi-Repo/App/main.py 
+  706  07/03/23 00:55:04 sudo crontab -e
+  707  07/03/23 00:58:06 cd Rpi-Repo
+  708  07/03/23 00:58:10 git pull origin dev-rpi
+  709  07/03/23 00:58:35 source project/env/bin/activate
+  710  07/03/23 00:58:44 cd ..
+  711  07/03/23 00:58:46 source project/env/bin/activate
+  712  07/03/23 00:58:52 python Rpi-Repo/App/main.py 
+  713  07/03/23 01:01:28 sudo crontab -e
+  714  07/03/23 01:06:04 source project/env/bin/activate
+  715  07/03/23 01:06:10 python Rpi-Repo/App/main.py 
+  716  07/03/23 01:11:28 which python
+  717  07/03/23 01:11:35 where python
+  718  07/03/23 01:12:08 cd Rpi-Repo
+  719  07/03/23 01:12:21 pwd
+  720  07/03/23 01:09:57 sudo crontab -e
+  721  07/03/23 01:14:54 sudo reboot
+  722  07/03/23 01:16:04 which python
+  723  07/03/23 01:16:15 crontab -e
+  724  07/03/23 01:16:29 sudo crontab -e
+  725  07/03/23 01:17:12 sudo reboot
+  726  07/03/23 01:18:31 cd Rpi-Repo
+  727  07/03/23 01:18:43 ls
+  728  07/03/23 01:19:03 ls -l
+  729  07/03/23 01:19:26 python ds18b20.py 
+  730  07/03/23 01:18:21 sudo crontab -e
+  731  07/03/23 01:21:09 sudo reboot
+  732  07/03/23 01:22:12 conky
+  733  07/03/23 01:22:26 cd Rpi-Repo
+  734  07/03/23 01:22:30 ls -l
+  735  07/03/23 01:23:01 sudo chmod a+x ds18b20.py 
+  736  07/03/23 01:23:03 ls -l
+  737  07/03/23 01:23:21 sudo reboot 
+  738  07/03/23 01:24:36 sudo crontab -e
+  739  07/03/23 01:25:22 sudo reboot 
+  740  07/03/23 01:27:23 ps aux
+  741  07/03/23 01:29:25 python3 Rpi-Repo/ds18b20.py 
+  742  07/03/23 01:29:40 sudo reboot
+  743  07/03/23 01:28:06 ps aux
+  744  07/03/23 01:28:22 sudo crontab -e
+  745  07/03/23 02:10:45 cd project/env/bin/
+  746  07/03/23 02:10:47 pwd
+  747  07/03/23 02:10:49 ls
+  748  07/03/23 02:11:01 pwd
+  749  07/03/23 02:09:16 cd Rpi-Repo
+  750  07/03/23 02:09:23 git pull origin dev-rpi 
+  751  07/03/23 02:09:28 y
+  752  07/03/23 02:09:37 chmod +x main.sh 
+  753  07/03/23 02:09:44 ./main.sh 
+  754  07/03/23 02:09:57 pwd
+  755  07/03/23 02:12:17 git pull origin dev-rpi 
+  756  07/03/23 02:12:39 git status
+  757  07/03/23 02:12:49 git branch
+  758  07/03/23 02:13:26 git diff ds18b20.py
+  759  07/03/23 02:13:45 git diff main 
+  760  07/03/23 02:13:54 git diff main.sh
+  761  07/03/23 02:14:34 git status
+  762  07/03/23 02:15:51 git pull origin dev-rpi 
+  763  07/03/23 02:16:05 git stash
+  764  07/03/23 02:16:10 git pull origin dev-rpi 
+  765  07/03/23 02:16:43 chmod +x main.sh 
+  766  07/03/23 02:16:46 ./main.sh 
+  767  07/03/23 02:23:19 sudo nano /etc/rc.local
+  768  07/03/23 02:25:37 sudo reboot
+  769  07/03/23 02:43:44 sudo nano /etc/rc.local
+  770  07/03/23 02:44:08 sudo crontab -e 
+  771  07/03/23 02:45:21 cd Rpi-Repo
+  772  07/03/23 02:45:24 cd App/
+  773  07/03/23 02:45:41 chmod +x main.py 
+  774  07/03/23 02:45:46 git status
+  775  07/03/23 02:46:06 git add main.py
+  776  07/03/23 02:46:14 git add ../main.sh 
+  777  07/03/23 02:46:50 git commit -m "make executable files"
+  778  07/03/23 02:47:09 git push origin dev-rpi 
+  779  07/03/23 02:47:56 sudo reboot 
+  780  07/03/23 02:49:06 python Rpi-Repo/button.py 
+  781  07/03/23 02:50:36 sudo shutdown -h now
+  782  07/03/23 10:54:31 conky
+  783  07/03/23 10:55:49 sudo crontab -e
+  784  07/03/23 11:29:20 sudo reboot
+  785  07/03/23 11:21:52 ls -l; pwd
+  786  07/03/23 11:22:09 ls -l;pwd
+  787  07/03/23 11:31:12 sudo reboot
+  788  07/03/23 11:36:38 cd Rpi-Repo
+  789  07/03/23 11:36:43 ./main.sh 
+  790  07/03/23 11:48:58 python
+  791  07/03/23 12:10:16 sudo apt-get update && sudo apt-get upgrade -y
+  792  07/03/23 12:15:10 sudo apt-get install build-essential cmake pkg-config libjpeg-dev libtiff5-dev libjasper-dev libpng-dev libavcodec-dev libavformat-dev libswscale-dev libv4l-dev libxvidcore-dev libx264-dev libfontconfig1-dev libcairo2-dev libgdk-pixbuf2.0-dev libpango1.0-dev libgtk2.0-dev libgtk-3-dev libatlas-base-dev gfortran libhdf5-dev libhdf5-serial-dev libhdf5-103 python3-pyqt5 python3-dev -y
+  793  07/03/23 12:16:47 pip install opencv-python==4.5.3.56
+  794  07/03/23 12:32:40 pip install firebase-admin
+  795  07/03/23 12:41:14 python Rpi-Repo/App/main.py 
+  796  07/03/23 12:41:42 pip list
+  797  07/03/23 12:42:19 python
+  798  07/03/23 12:48:07 pip install -U numpy 
+  799  07/03/23 12:51:16 pip list
+  800  07/03/23 12:48:58 sleep 5
+  801  07/03/23 12:49:12 sleep 700
+  802  07/03/23 12:55:30 cd Rpi-Repo
+  803  07/03/23 12:55:33 ./main.sh 
+  804  07/03/23 13:04:23 git pull origin dev-rpi 
+  805  07/03/23 13:04:33 ./main.sh 
+  806  07/03/23 13:41:39 sudo crontab -e
+  807  07/03/23 13:42:32 ls /etc/
+  808  07/03/23 13:42:40 ls -l /etc/
+  809  07/03/23 13:43:00 sudo nano /etc/rc.local 
+  810  07/03/23 13:43:54 sudo reboot
+  811  07/03/23 13:46:54 sudo nano /etc/rc.local 
+  812  07/03/23 13:48:21 sudo reboot
+  813  07/03/23 13:56:43 cd Rpi-Repo
+  814  07/03/23 13:56:48 git pull origin dev-rpi 
+  815  07/03/23 13:57:04 sudo nano /etc/rc.local 
+  816  07/03/23 13:57:16 ./main.sh 
+  817  07/03/23 13:58:15 sudo nano /etc/rc.local 
+  818  07/03/23 13:58:51 sudo reboot 
+  819  07/03/23 14:01:14 Rpi-Repo/main.sh 
+  820  07/03/23 14:01:48 python Rpi-Repo/button.py 
+  821  07/03/23 14:03:00 cd Rpi-Repo
+  822  07/03/23 14:03:04 ./main.sh 
+  823  07/03/23 14:03:51 sudo nano /etc/rc.local 
+  824  07/03/23 14:04:05 python Rpi-Repo/button.py 
+  825  07/03/23 14:04:16 python button.py 
+  826  07/03/23 14:05:41 cd Rpi-Repo
+  827  07/03/23 14:05:49 ./main.sh
+  828  07/03/23 14:09:30 sudo nano /etc/rc.local 
+  829  07/03/23 14:10:16 sudo reboot 
+  830  07/03/23 14:15:55 cd Rpi-Repo
+  831  07/03/23 14:15:59 git pull origin dev-rpi 
+  832  07/03/23 14:16:13 ./main.sh
+  833  07/03/23 14:16:49 sudo nano /etc/rc.local 
+  834  07/03/23 14:17:03 sudo reboot
+  835  07/03/23 14:19:16 Rpi-Repo/main.sh
+  836  07/03/23 14:19:28 sudo shutdown -h now
+  837  08/03/23 12:25:31 source project/env/bin/activate
+  838  08/03/23 12:27:11 python Rpi-Repo/App/main.py 
+  839  08/03/23 12:28:16 sudo nano /etc/rc.local 
+  840  08/03/23 12:29:01 sudo shutdown -h now
+  841  08/03/23 12:34:37 sudo nano /etc/rc.local 
+  842  08/03/23 12:34:46 source project/env/bin/activate
+  843  08/03/23 12:35:27 python Rpi-Repo/App/main.py 
+  844  08/03/23 13:00:37 sudo shutdown -h now
+  845  10/03/23 08:14:59 source project/env/bin/activate
+  846  10/03/23 08:15:01 python Rpi-Repo/App/main.py 
+  847  10/03/23 08:49:17 sudo shutdown -h now
+  848  26/06/23 23:22:57 sudo nano /etc/rc.local
+  849  26/06/23 23:23:47 fg
+  850  26/06/23 23:30:09 cd Rpi-Repo
+  851  26/06/23 23:30:11 ls
+  852  26/06/23 23:30:16 cat main.sh
+  853  26/06/23 23:32:42 cd ..
+  854  26/06/23 23:33:40 source project/env/bin/activate
+  855  26/06/23 23:33:56 python Rpi-Repo/App/main.py
+  856  26/06/23 23:42:09 deactivate 
+  857  26/06/23 23:42:12 ls
+  858  26/06/23 23:42:23 cd Rpi-Repo
+  859  26/06/23 23:42:29 git status
+  860  26/06/23 23:42:40 git log
+  861  26/06/23 23:57:15 git branch
+  862  27/06/23 00:26:39 cat App/main.py 
+  863  26/06/23 23:19:33 hiatory
+  864  26/06/23 23:19:37 history
+  865  27/06/23 00:35:21 sudo shutdown -h now
+  866  27/06/23 14:25:14 cd Rpi-Repo
+  867  27/06/23 14:25:19 cat main.sh 
+  868  27/06/23 14:26:22 git branch 
+  869  27/06/23 14:29:42 git status
+  870  27/06/23 14:29:51 git log
+  871  27/06/23 14:31:29 git pull origin dev-rpi 
+  872  27/06/23 14:32:32 cat App/main.py 
+  873  27/06/23 14:40:57 cd ..
+  874  27/06/23 14:41:10 source project/env/bin/activate
+  875  27/06/23 14:41:36 python Rpi-Repo/App/main.py 
+  876  27/06/23 14:28:03 hisotry
+  877  27/06/23 14:28:08 hisstory
+  878  27/06/23 14:28:12 history
+  879  27/06/23 14:29:04 sudo nano /etc/rc.local
+  880  27/06/23 14:39:07 conky
+  881  27/06/23 16:49:22 conky &
+  882  27/06/23 16:49:28 pwd
+  883  27/06/23 16:49:49 which python
+  884  27/06/23 23:50:54 xd Rpi-Repo
+  885  27/06/23 23:50:58 cd Rpi-Repo
+  886  27/06/23 23:51:03 python mq135.py 
+  887  27/06/23 23:59:14 python ds18b20.py 
+  888  28/06/23 00:24:03 git pull origin dev-rpi 
+  889  28/06/23 00:24:27 cat App/main.py 
+  890  28/06/23 00:32:11 git pull origin dev-rpi 
+  891  27/06/23 14:24:33 history
+  892  28/06/23 01:04:48 source project/env/bin/activate
+  893  28/06/23 01:05:49 python Rpi-Repo/App/main.py 
+  894  28/06/23 01:04:03 conky &
+  895  28/06/23 01:04:30 cd Rpi-Repo
+  896  28/06/23 01:05:21 git pull origin dev-rpi 
+  897  28/06/23 01:03:51 history 
+  898  28/06/23 11:00:58 conky &
+  899  28/06/23 11:01:08 cd Rpi-Repo
+  900  28/06/23 11:01:14 git pull origin dev-rpi 
+  901  28/06/23 11:00:31 source project/env/bin/activate
+  902  28/06/23 11:01:23 python Rpi-Repo/App/main.py 
+  903  28/06/23 11:00:21 history
+  904  28/06/23 13:00:54 source project/env/bin/activate
+  905  28/06/23 13:06:20 python Rpi-Repo/App/main.py 
+  906  28/06/23 13:40:24 python Rpi-Repo/queue.py 
+  907  28/06/23 13:40:53 python Rpi-Repo/App/main.py 
+  908  28/06/23 13:52:16 python Rpi-Repo/ds18b20.py 
+  909  28/06/23 13:54:07 python Rpi-Repo/App/main.py 
+  910  28/06/23 14:05:58 python Rpi-Repo/ds18b20.py 
+  911  28/06/23 14:09:35 python Rpi-Repo/App/main.py 
+  912  28/06/23 13:01:11 conky &
+  913  28/06/23 13:01:18 cd Rpi-Repo
+  914  28/06/23 13:01:28 git pull origin dev-rpi 
+  915  28/06/23 14:12:31 history 
+  916  28/06/23 14:12:50 source project/env/bin/activate
+  917  28/06/23 14:15:16 python Rpi-Repo/App/main.py 
+  918  28/06/23 14:13:08 conky &
+  919  28/06/23 14:13:19 cd Rpi-Repo
+  920  28/06/23 14:13:21 git pull origin dev-rpi 
+  921  28/06/23 16:21:55 history 
+  922  28/06/23 16:22:10 cd Rpi-Repo
+  923  28/06/23 16:22:13 git pull origin dev-rpi 
+  924  28/06/23 16:22:25 conky &
+  925  28/06/23 16:27:02 git pull origin dev-rpi 
+  926  28/06/23 16:22:06 source project/env/bin/activate
+  927  28/06/23 16:22:48 python Rpi-Repo/ds18b20_thread.py 
+  928  28/06/23 16:33:27 python Rpi-Repo/App/main.py 
+  929  28/06/23 16:43:42 python Rpi-Repo/ds18b20_thread.py 
+  930  28/06/23 17:00:01 python Rpi-Repo/App/main.py 
+  931  28/06/23 18:11:33 conky &
+  932  28/06/23 18:11:37 cd Rpi-Repo
+  933  28/06/23 18:11:43 git pull origin dev-rpi 
+  934  28/06/23 18:23:57 cd /home
+  935  28/06/23 18:24:01 ls
+  936  28/06/23 18:24:05 cd ~
+  937  28/06/23 18:24:06 ls
+  938  28/06/23 18:30:23 cd Rpi-Repo
+  939  28/06/23 18:30:28 git pull origin dev-rpi 
+  940  28/06/23 18:33:15 cat desktop 
+  941  28/06/23 18:33:37 nano desktop 
+  942  28/06/23 18:38:50 ls
+  943  28/06/23 18:11:24 source project/env/bin/activate
+  944  28/06/23 18:11:56 python Rpi-Repo/App/main.py 
+  945  28/06/23 18:21:18 /usr/bin/python  Rpi-Repo/App/main.py 
+  946  28/06/23 18:22:31 /usr/bin/python3  Rpi-Repo/App/main.py 
+  947  28/06/23 18:22:47 /usr/bin/python3.9  Rpi-Repo/App/main.py 
+  948  28/06/23 18:23:11 /usr/bin/python3.9  /home/Rpi-Repo/App/main.py 
+  949  28/06/23 18:23:31 /usr/bin/python  /home/Rpi-Repo/App/main.py 
+  950  28/06/23 18:25:38 /usr/bin/python  /home/rpi/Rpi-Repo/App/main.py 
+  951  28/06/23 18:25:54 python  /home/rpi/Rpi-Repo/App/main.py 
+  952  28/06/23 18:11:14 history
+  953  28/06/23 18:31:25 cd /home/rpi/.config/
+  954  28/06/23 18:31:28 ls -al
+  955  28/06/23 18:31:44 cd autostart/
+  956  28/06/23 18:31:46 ls
+  957  28/06/23 18:31:57 ls -al
+  958  28/06/23 18:32:02 cat LXinput-setup.desktop 
+  959  28/06/23 18:33:05 nano main.desktop
+  960  28/06/23 18:40:46 /bin/bash -c 'source /home/rpi/project/env/bin/activate && python /home/rpi/Rpi-Repo/App/main.py'
+  961  28/06/23 18:46:20 conky &
+  962  29/06/23 11:39:45 sudo shutdown -h now
+  963  29/06/23 11:50:41 conky &
+  964  29/06/23 12:11:24 cd Rpi-Repo
+  965  29/06/23 12:12:32 git pull origin dev-rpi 
+  966  29/06/23 12:25:47 conky &
+  967  29/06/23 12:56:12 cd Rpi-Repo
+  968  29/06/23 12:56:18 git pull origin dev-rpi 
+  969  29/06/23 12:56:40 sudo reboot
+  970  29/06/23 12:58:29 conky &
+  971  29/06/23 13:08:41 cd Rpi-Repo
+  972  29/06/23 13:08:44 git pull origin dev-rpi 
+  973  29/06/23 13:11:05 conky &
+  974  29/06/23 14:39:39 cd Rpi-Repo
+  975  29/06/23 14:39:44 git pull origin dev-rpi 
+  976  29/06/23 14:44:49 conky &
+  977  29/06/23 15:01:41 cd Rpi-Repo
+  978  29/06/23 15:01:46 git pull origin dev-rpi 
+  979  29/06/23 15:06:38 conky &
+  980  29/06/23 15:12:24 cd Rpi-Repo
+  981  29/06/23 15:12:27 git pull origin dev-rpi 
+  982  29/06/23 15:14:48 conky &
+  983  29/06/23 16:56:15 cd Rpi-Repo
+  984  29/06/23 16:56:18 git pull origin dev-rpi 
+  985  29/06/23 16:59:19 conky &
+  986  29/06/23 17:05:27 cd Rpi-Repo
+  987  29/06/23 17:05:30 git pull origin dev-rpi 
+  988  29/06/23 19:48:12 cd Rpi-Repo
+  989  29/06/23 19:48:17 git pull origin dev-rpi 
+  990  29/06/23 20:00:23 conky &
+  991  29/06/23 20:00:31 cd Rpi-Repo
+  992  29/06/23 20:00:33 git pull origin dev-rpi 
+  993  29/06/23 20:06:54 conky &
+  994  29/06/23 20:07:02 cd Rpi-Repo
+  995  29/06/23 20:07:03 git pull origin dev-rpi 
+  996  29/06/23 20:14:40 conky &
+  997  29/06/23 20:26:41 history
+  998  29/06/23 20:46:50 cd Rpi-Repo
+  999  29/06/23 20:46:55 git log
+ 1000  29/06/23 20:47:01 git status
+ 1001  29/06/23 20:47:20 cd ..
+ 1002  29/06/23 20:47:41 history >> Rpi-Repo/history.txt
