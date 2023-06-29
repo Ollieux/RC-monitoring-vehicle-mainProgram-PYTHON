@@ -200,7 +200,7 @@ def read_temp():
             temp_queue.put(read)
             time.sleep(1)
 
-        # TODO: sleep(0.5) ?
+        time.sleep(1)
 
 
 def button_callback(channel):
