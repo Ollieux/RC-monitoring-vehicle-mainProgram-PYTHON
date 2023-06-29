@@ -194,22 +194,22 @@ def detect_fire():
 
 def read_temp():
 
-    while True:
-
-        while connected:
-
-            read = sensor.get_temperature()
-            temp_queue.put(read)
-            time.sleep(1)
-
     # while True:
     #
-    #     while not connected:
-    #         pass
+    #     while connected:
     #
-    #     read = sensor.get_temperature()
-    #     temp_queue.put(read)
-    #     time.sleep(1)
+    #         read = sensor.get_temperature()
+    #         temp_queue.put(read)
+    #         time.sleep(1)
+
+    while True:
+
+        while not connected:
+            pass
+
+        read = sensor.get_temperature()
+        temp_queue.put(read)
+        time.sleep(1)
 
 
 
