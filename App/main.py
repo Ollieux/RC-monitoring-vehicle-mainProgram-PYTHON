@@ -201,19 +201,6 @@ def read_temp():
         time.sleep(1)
 
 
-def _read_temp():
-
-    while True:
-
-        while not connected:
-            pass
-
-        read = sensor.get_temperature()
-        temp_queue.put(read)
-        time.sleep(1)
-
-
-
 def button_callback(channel):
 
     global running
@@ -285,8 +272,6 @@ controls_thread.start()
 smoke_thread = threading.Thread(target=detect_smoke, )
 smoke_thread.start()
 
-# temp_thread = threading.Thread(target=read_temp, )
-# temp_thread.start()
 
 while True:
     try:
