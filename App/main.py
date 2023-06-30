@@ -230,7 +230,7 @@ fire_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'fire_detection.xml
 cred = credentials.Certificate('/home/rpi/Rpi-Repo/Notification/pushnotifcationtest-f5539-firebase-adminsdk-2ssjk-6ca36caa53.json')
 firebase_admin.initialize_app(cred)
 
-registration_token = 'epZx5w_RToGbXxrpEjeMXN:APA91bG2_S8rKS3enFhMq9oHwBoJt_XYn4nQEwZE3gCyb-EX-tyhR8DhgvVnjhL0fO5k0-c6ZxBagDMcv_h-iAUZWB5DEGRS9njP1ihvhH_zldBCow2_iCEmX2Rth2A0HzbJ-1R0y3Gj'
+registration_token = 'epZx5w_RToGbXxrpEjeMXN:APA91bE3tEshbgB0_T0yMa28AeFkPOCmt4-HxIYwCk4q24mhEqIMvfp1VlEPPfgal0c7JTH3wCTPH-GvxrDgLHuwbmOGvPjAdY4SZ6PXwgCuU6YElAGAaorIg-vBfBh4dr-Dz0FaSrmH'
 
 WIDTH = 320
 HEIGHT = 240
